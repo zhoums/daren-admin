@@ -1,0 +1,89 @@
+<div class="modal fade" id="dr_settle_apply">
+	<div class="modal-dialog" style="width: 60%;">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"
+					aria-hidden="true">&times;</button>
+				<h4 class="modal-title">
+					<center>申请结算</center>
+				</h4>
+			</div>
+			<div class="modal-body">
+				<form class="form-horizontal row-border" id="dr_settle_apply_form">
+					
+					<div class="form-group" style="border-top: none;">
+						<label class="col-sm-3 control-label"> 总申请费用:
+						</label>
+						<div class="col-md-6">
+							<input class="form-control required " type="text" name="drFeeAmt" id="drFeeAmt" value="{{drFeeAmt}}" disabled/>
+						</div>
+					</div>
+					{{if settlementInvoiceMethod > 0}}
+					<div class="form-group" style="border-top: none;">
+						<label class="col-sm-3 control-label"> <span
+							class="required">*</span>发票提供类型类型:
+						</label>
+						<div class="col-md-6">
+							<input class="form-control" type="text" value="{{settlementInvoiceMethodStr}}" disabled/>
+						</div>
+					</div>
+					{{/if}}
+					
+					{{if settlementInvoiceMethod == 0}}
+					<!-- 
+					<div class="form-group" style="border-top: none;">
+						<label class="col-sm-3 control-label"> <span
+							class="required">*</span> 是否有发票:
+						</label>
+						<div class="col-md-6">
+							<select class="form-control" name="hasInvoice">
+								<option value="1">有发票</option>
+								<option value="2">先打款再开发票</option>
+							</select>
+						</div>
+					</div>
+					 -->
+					{{/if}}
+					<!-- <div class="form-group" style="border-top:none;">
+                        <label class="col-sm-3 control-label"> 备注: </label>
+                        <div class="col-md-6">
+                            <textarea name="remark" class="form-control" rows="3" ></textarea>
+                        </div>
+                    </div> -->
+					<input type="hidden" name="taskId" value="{{taskId}}" />
+					<input type="hidden" name="taskIds" value="{{taskIds}}" />
+				</form>
+				<div class="container-fluid">
+					<!-- 无发票 -->
+					{{if settlementInvoiceMethod == 1}}
+						
+					{{/if}}
+					<!-- 先开票后打款 -->
+					{{if settlementInvoiceMethod == 2}}
+						<div class="well">
+							提示：申请结算费用后，需要：<br>
+							1. 先确认任务金额（茉莉传媒平台和您对支付费用达成共识）<br>
+							2. 针对确认任务的金额开发票（对达成共识的费用进行开票）<br>
+							3. 发票审核通过后，系统将打款到您指定的账户
+						</div>
+					{{/if}}
+					<!-- 先打款后开票 -->
+					{{if settlementInvoiceMethod == 3}}
+						<div class="well">
+							提示：申请结算费用后：<br>
+							1. 若平台审核通过后，平台将打款给您。<br>
+							2. 收到款项后，请您及时对相应的任务进行开票。<br>
+						</div>
+					{{/if}}
+				</div>
+			</div>
+			<div class="modal-footer" style="margin-top: 0;">
+				<button type="button" class="btn btn-default" data-dismiss="modal">
+					关闭</button>
+				<button type="button" class="btn btn-primary bind bind-click"
+					validate-form="dr_settle_apply_form"
+					bind-method="submitDarenSettlementApplyModal" tag="{{tag}}" taskId="{{taskId}}" data-sim="{{settlementInvoiceMethod}}" data-needinvoice="{{if needInvoice}}true{{/if}}">保存</button>
+			</div>
+		</div>
+	</div>
+</div>

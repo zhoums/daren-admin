@@ -1,0 +1,18 @@
+<tr id="dren_resource_{{id}}" rid="{{id}}">
+    <td key="nickname" value="{{nickname}}">{{nickname}}</td>
+    <td key="resourceType" value="{{resourceType}}" id="ipt_resource_type_{{id}}">{{resourceTypeStr}}</td>
+  <!--   <td key="price" value="{{price}}" id="price_{{id}}">
+    	<input type="text" name="price" id="ipt_price_{{id}}" value="{{price}}" class="form-control" onkeyup="value=value.replace(/[^\d.]/g,'')" />
+    </td> -->
+    <td  key="discountPrice" value="{{discountPrice}}" id="discountPrice_{{id}}">
+    	<input type="text" name="price" id="ipt_price_{{id}}" value="{{price}}" style="display:none" class="form-control" onkeyup="value=value.replace(/[^\d.]/g,'')" />
+    	<input type="text" name="discountPrice" id="ipt_discount_price_{{id}}" value="{{discountPrice}}" class="form-control" onkeyup="value=value.replace(/[^\d.]/g,'')" />
+    </td> 
+    <td key="priceRemark" value="{{priceRemark}}" id="priceRemark_{{id}}">
+    	<input class="form-control" type="text" id="ipt_price_remark_{{id}}" name="priceRemark" value="{{priceRemark}}" placeholder="报价备注" /> 
+    </td>
+    <td key="op">
+    	<!-- <a href="#" class="bind bind-click permission" code="dr_edit" bind-method="editDrenResource" id="{{id}}" >修改</a> -->
+    	<a href="#" class="bind bind-click" bind-method="deleteDrenResource" id="{{id}}" >删除</a>
+    </td> 
+</tr>

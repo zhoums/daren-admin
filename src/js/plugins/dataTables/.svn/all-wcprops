@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/media-cms/!svn/ver/544/trunk/code/source/client/daren-front/src/js/plugins/dataTables
+END
+jquery.dataTables.min.js
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/media-cms/!svn/ver/544/trunk/code/source/client/daren-front/src/js/plugins/dataTables/jquery.dataTables.min.js
+END
+dataTables.rowsGroup.js
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/media-cms/!svn/ver/544/trunk/code/source/client/daren-front/src/js/plugins/dataTables/dataTables.rowsGroup.js
+END
+dataTables.tableTools.min.js
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/media-cms/!svn/ver/544/trunk/code/source/client/daren-front/src/js/plugins/dataTables/dataTables.tableTools.min.js
+END
+fnReloadAjax.js
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/media-cms/!svn/ver/544/trunk/code/source/client/daren-front/src/js/plugins/dataTables/fnReloadAjax.js
+END
+dataTables.bootstrap.js
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/media-cms/!svn/ver/544/trunk/code/source/client/daren-front/src/js/plugins/dataTables/dataTables.bootstrap.js
+END
+jquery.dataTables.js
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/media-cms/!svn/ver/544/trunk/code/source/client/daren-front/src/js/plugins/dataTables/jquery.dataTables.js
+END

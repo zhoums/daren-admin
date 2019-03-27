@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="Expires" content="0">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Cache-control" content="no-cache">
+<meta http-equiv="Cache" content="no-cache">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<title>茉莉传媒-达人系统-登录</title>
+<link rel="shortcut icon" href="/img/favicon.ico?t=1" type="image/x-icon" />
+<link href="/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+
+<link href="/css/plugins.css" rel="stylesheet" type="text/css" />
+<link href="/css/responsive.css" rel="stylesheet" type="text/css" />
+<link href="/css/icons.css" rel="stylesheet" type="text/css" />
+<link href="/css/plugins/sweetalert/sweetalert2.css" rel="stylesheet">
+<link href="/css/fontawesome/font-awesome.min.css" rel="stylesheet">
+<!--  
+    
+   <link href="/css/main.css" rel="stylesheet" type="text/css" />
+    <link href="/css/login.css" rel="stylesheet" type="text/css" />
+    -->
+<link rel="stylesheet" href="/css/logincss.css" type="text/css" />
+<style>
+input:-webkit-autofill {
+	-webkit-box-shadow: 0 0 0px 1000px rgba(241, 228, 243, 1) inset
+		!important;
+}
+
+form input.text-input, form select, form textarea, form .wysiwyg {
+	padding: 6px;
+	font-size: 13px;
+	background: #fff url('../images/bg-form-field.gif') top left repeat-x;
+	border: 1px solid #d5d5d5;
+	color: #000000;
+	background-color: transparent !important;
+}
+
+form input.text-input, form select, form textarea, form .wysiwyg {
+	padding: 6px;
+	font-size: 13px;
+	background: #fff url('../images/bg-form-field.gif') top left repeat-x;
+	border: 1px solid #d5d5d5;
+	color: #333;
+}
+
+.button {
+	font-family: Verdana, Arial, sans-serif;
+	display: inline-block;
+	background: #459300 url(../images/bg-button-green.gif) top left repeat-x;
+	border: 1px solid #459300;
+	padding: 4px 7px 4px 7px;
+	color: #fff;
+	font-size: 11px;
+	cursor: pointer;
+}
+</style>
+</head>
+<body id="login">
+	<div id="login-wrapper">
+		<div id="login-frame">
+
+			<form id="login-form" action="#" method="post">
+
+
+				<div style="overflow: hidden">
+					<input class="text-input showCaptcha" name="account" id="account" 
+						style="border: 0; border-bottom: 1px solid rgb(185, 185, 185); border-radius: 0; padding-top: 20px; padding-bottom: 0px; font-size: 140%; background: none"
+						placeholder="请输入账号" value="" />
+				</div>
+				<div style="overflow: hidden">
+					<input class="text-input showCaptcha" name="password" id="password" 
+						style="border: 0; border-bottom: 1px solid rgb(185, 185, 185); border-radius: 0; padding-top: 20px; padding-bottom: 0px; font-size: 140%; background: none; display: block"
+						placeholder="请输入密码" type="password" value="" />
+					<!-- <input type="button" class="see" name="see" id="see" /> -->
+				</div>
+				<div id="captchaShow" style="display: none;">
+					<input class="text-input" name="captcha" id="captcha"
+						style="border: 0; border-bottom: 1px solid rgb(185, 185, 185); border-radius: 0; padding-top: 20px; padding-bottom: 0px; font-size: 140%; background: none; width: 320px; display: block"
+						placeholder="验证码" value="" autocomplete="off" /> <img src="/daren-web/rbac/captcha.wb" class="captcha" id="login_captcha_img" style="cursor: pointer" title="刷新验证码" />
+				</div>
+				<div>
+					<input id="loginbut" type="button" class="button bind bind-click" data-loading-text="正在登陆……" bind-method="login" value="登录">
+				</div>
+				<div style="padding-top: 45px; text-align: right">
+					<a class="bind bind-click" bind-method="forgetPwd" style="cursor: pointer">忘记密码</a>
+				</div>
+				<div>
+				</div>
+			</form>
+		</div>
+		<!-- End #login-content -->
+	</div>
+	<div class="modal fade" id="forget_password" style="position: absolute;" data-backdrop="static">
+		<div class="modal-dialog" style="width: 60%;">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h4 class="modal-title">
+						<center>忘记密码</center>
+					</h4>
+				</div>
+				<div class="modal-body" style="height: 150px">
+					<form class="form-horizontal row-border" id="forget-password-form">
+						<div class="form-group" style="border-top: none;">
+							<label class="col-sm-3 control-label"><span class="required">*</span>账号(邮箱):</label>
+							<div class="col-sm-6">
+								<input class="form-control required email" type="text" name="email" id="forgetEmail" style="width: 100%; font-size: 120%; height: 45px" />
+							</div>
+						</div>
+						<div class="form-group" style="border-top: none;">
+							<label class="col-sm-3 control-label"><span class="required">*</span>验证码:</label>
+							<div class="col-sm-4">
+								<input class="form-control required" type="text" name="captcha" id="foget_captcha" style="width: 100%; font-size: 120%; height: 45px" />
+							</div>
+							<div class="col-sm-3">
+								<img src="/daren-web/rbac/captcha.wb" id="forget_captcha_img" style="cursor: pointer" title="刷新验证码" />
+							</div>
+						</div>
+					</form>
+				</div>
+				<div class="modal-footer" style="margin-top: 0;">
+					<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+					<button type="button" class="btn btn-primary bind bind-click" validate-form="forget-password-form" data-loading-text="loading……" bind-method="submitForgetPassword">
+						确定</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="modal fade" id="forget_password_verify" style="position: absolute;" data-backdrop="static">
+		<div class="modal-dialog" style="width: 60%;">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h4 class="modal-title">
+						<center>密码重置</center>
+					</h4>
+				</div>
+				<div class="modal-body">
+					<form class="form-horizontal row-border" id="forget-password-verify-form">
+						<div class="form-group" style="border-top: none;">
+							<label class="col-sm-3 control-label"><span class="required">*</span> 邮件验证码: </label>
+							<div class="col-sm-6">
+								<input class="form-control required" type="text" name="code" id="verifyCode" style="width: 100%" />
+							</div>
+						</div>
+						<div class="form-group" style="border-top: none;">
+							<label class="col-sm-3 control-label"><span class="required">*</span> 新密码: </label>
+							<div class="col-sm-6">
+								<input class="form-control required" type="password" name="password" id="newPassword" style="width: 100%" />
+							</div>
+						</div>
+						<div class="form-group" style="border-top: none;">
+							<label class="col-sm-3 control-label"><span class="required">*</span> 确认密码: </label>
+							<div class="col-sm-6">
+								<input class="form-control required" type="password" name="rePassword" id="rePassword" style="width: 100%" />
+							</div>
+						</div>
+						<div>
+							<div class="col-sm-3"></div>
+							<label id="lbError" style="font-color: red"></label>
+						</div>
+					</form>
+				</div>
+				<div class="modal-footer" style="margin-top: 0;">
+					<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+					<button type="button" class="btn btn-primary bind bind-click" validate-form="forget-password-verify-form" data-loading-text="loading……"
+						bind-method="submitForgetPasswordVerify">确定</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="modal fade" id="first_time_login_reset_pwd" style="position: absolute;" data-backdrop="static">
+		<div class="modal-dialog" style="width: 60%;">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h4 class="modal-title">
+						<center>初次登陆请重置密码</center>
+					</h4>
+				</div>
+				<div class="modal-body">
+					<form class="form-horizontal row-border" id="first-time-login-reset-pwd-form">
+						<div class="form-group" style="border-top: none;">
+							<label class="col-sm-3 control-label"><span class="required">*</span> 新密码: </label>
+							<div class="col-sm-6">
+								<input type="hidden" name="token">
+								<input class="form-control required" type="password" name="password" style="width: 100%" />
+							</div>
+						</div>
+						<div class="form-group" style="border-top: none;">
+							<label class="col-sm-3 control-label"><span class="required">*</span> 确认密码: </label>
+							<div class="col-sm-6">
+								<input class="form-control required" type="password" name="rePassword" style="width: 100%" />
+							</div>
+						</div>
+						<div>
+							<div class="col-sm-3"></div>
+							<label id="lbError" style="font-color: red"></label>
+						</div>
+					</form>
+				</div>
+				<div class="modal-footer" style="margin-top: 0;">
+					<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+					<button type="button" class="btn btn-primary bind bind-click" validate-form="first-time-login-reset-pwd-form" data-loading-text="loading……"
+						bind-method="submitFirstTimeLoginResetPwd">确定</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script id="current-page" current-page="login" target-module="admin" src="/js/common/require.js"></script>
+	<script>
+	//requirejs([ '/js/common/boot.js' ], function(boot) {
+	requirejs(['/js/common/boot.js?v='+new Date().getTime()], function(boot) {
+	    require([ 'common/base/base' ], function(base) {
+		$(document).keypress(function(event) {
+		    switch (event.keyCode) {
+		    case 13:
+			$("#loginbut").click();
+		    }
+		});
+
+	    });
+	});
+    </script>
+</body>
+
+</html>

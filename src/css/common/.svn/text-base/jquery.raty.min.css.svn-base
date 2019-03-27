@@ -1,0 +1,83 @@
+.jqraty a {
+	color: #277da8;
+	text-decoration: none
+}
+
+.jqraty a:hover {
+	color: #48a5d4
+}
+
+.jqraty ul {
+	margin-left: 0;
+	padding-left: 22px
+}
+
+.jqraty ul li {
+	font-size: 1.3em
+}
+
+.jqraty {
+	margin-bottom: 10px
+}
+
+.jqraty input, .jqraty textarea, .jqraty select {
+	border: 1px solid #999;
+	border-radius: 5px;
+	color: #333;
+	display: inline-block;
+	height: 27px;
+	font-size: 1.5em;
+	text-align: center;
+	width: 135px;
+	vertical-align: middle
+}
+
+.jqraty input:focus, .jqraty textarea:focus, .jqraty select:focus {
+	border: 1px solid #95bdd4
+}
+
+.jqraty input:hover, .jqraty textarea:hover, .jqraty select:hover {
+	border: 1px solid #bdbdbd
+}
+
+.jqraty textarea {
+	resize: none;
+	height: 27px
+}
+
+.jqraty select {
+	text-align: left
+}
+
+.jqraty .levelImg {
+	display: inline-block;
+	vertical-align: middle
+}
+
+.jqraty div.hint {
+	background-color: #f8f8f8;
+	border-radius: 5px;
+	color: #333;
+	display: inline-block;
+	height: 27px;
+	font-size: 1.5em;
+	text-align: center;
+	width: 135px;
+	vertical-align: middle
+}
+
+.jqraty label {
+	color: #444;
+	font-size: 1.7em;
+	letter-spacing: .7px;
+	margin-right: 5px;
+	padding-left: 6px;
+	vertical-align: middle
+}
+
+.jqraty a.run {
+	font-size: 1.5em;
+	margin-left: 5px;
+	letter-spacing: .7px;
+	vertical-align: middle
+}

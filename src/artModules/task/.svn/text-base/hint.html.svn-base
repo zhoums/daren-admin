@@ -1,0 +1,20 @@
+<div class="modal fade" id="entry_hint">
+    <div class="modal-dialog" style="width: 40%;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"> ×</button>
+                     <center style="font-size: 24px;">提示信息</center>
+            </div>
+            <div class="modal-body">
+                    <center style="font-size: 18px;">
+                    当前您尚有等待回填发票数据的任务，请尽早完成开票!
+                    </center>
+            </div>
+            <div class="modal-footer">
+                <div style="margin: 0 auto;"></div>
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

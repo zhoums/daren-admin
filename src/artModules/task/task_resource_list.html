@@ -1,0 +1,19 @@
+<tr>
+	<td>{{idStr}}</td>
+	<td>{{postTime}}</td> 
+	<td>{{upTime}}</td>
+	<td>{{resourceLocation}}</td>
+	<td>{{shopNames}}</td>
+	<td>{{commissionLink}}</td> 
+	<td style="word-break:break-all;">
+		<span id="span_MainProduct_{{id}}" style="display:none">{{# mainProducts}}</span><br>
+		<a data-toggle="tooltip" data-placement="top" title="{{mainProducts}}" data-html='true' class="bind bind-click" bind-method="showMainProducts" resource_item_id="{{id}}">详情</a>	
+	</td>
+	<td>
+		{{if remark!=''}}
+		<span id="span_Remark_{{id}}" style="display:none">{{remark}}</span><br>
+		<a data-toggle="tooltip" data-placement="top" title="{{remark}}" class="bind bind-click" bind-method="showRemark" resource_item_id="{{id}}">详情</a>	
+		{{/if}}
+	</td>
+	<td>{{statusStr}}</td>
+</tr>

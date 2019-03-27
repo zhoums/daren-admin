@@ -1,0 +1,21 @@
+<li>
+    <a class="J_menuItem" href="{{url}}" data-index="{{url}}" >
+        <i class="{{#icon}}"></i>
+        <span class="nav-label">{{name}}</span>
+        <span class="fa arrow icon-angle-right"></span>
+    </a>
+    <ul class="nav nav-second-level" aria-expanded="false">
+        {{each submenus as item i}}
+        <li>
+            <a class="J_menuItem"  href="{{item.url}}" data-index="{{item.url}}">{{item.name}}</a> 
+            {{if item.submenus.length>0}}
+                <ul class="nav nav-third-level">
+                    {{each item.submenus as memu j}}
+                    <li><a  class="J_menuItem" href="{{item.submenus[j].url}}"  data-index="{{item.submenus[j].url}}">{{item.submenus[j].name}}</a></li>
+                    {{/each}}
+                </ul>
+            {{/if}}
+        </li>
+        {{/each}}
+    </ul>
+</li>

@@ -1,0 +1,12 @@
+/*TMODJS:{"version":18,"md5":"13f2e18d15119b919faa31436df5cbef"}*/
+define(['../../../template',''],function(template){return template('src/artModules/daren/modify_daren_info', function($data,$filename
+/*``*/) {
+'use strict';var $utils=this,$helpers=$utils.$helpers,$escape=$utils.$escape,id=$data.id,nickname=$data.nickname,articleUrl=$data.articleUrl,$out='';$out+='<div class="modal fade" id="modify_daren_info"> <div class="modal-dialog" style="width: 80%;"> <div class="modal-content"> <div class="modal-header"> <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button> <h4 class="modal-title">修改达人信息</h4> </div> <div class="modal-body col-sm-12"> <form class="form-horizontal" id="modify_daren_info_form"> <div class="form-group"> <input type="hidden" name="id" value="';
+$out+=$escape(id);
+$out+='" /> <div class="form-group" style="border-top:none;"> <label class="col-sm-3 control-label"> <span class="required">*</span> 平台: </label> <div class="col-md-6"> <select class="form-control required" name="platform" id="platform" style="width: 100%"> </select> </div> </div> <div class="form-group" style="border-top:none;"> <label class="col-sm-3 control-label"> <span class="required">*</span> 昵称</label> <div class="col-md-6"> <input type="text" class="form-control required" id="nickname" name="nickname" value="';
+$out+=$escape(nickname);
+$out+='"> </div> </div>  <div class="form-group article_url_group" style="border-top:none;"> <label class="col-sm-3 control-label"> <span class="required">*</span> 已发布文章链接</label> <div class="col-md-6"> <select class="form-control required" id="resourceType" name="resourceType" style="width: 100%"> <option value="0" selected>请选择</option> <option value="10" selected>微淘</option> </select> </div> </div> <div class="form-group article_url_group" style="border-top:none;"> <label class="col-sm-3 control-label"> </label> <div class="col-md-9"> <input type="text" class="form-control required" id=articleUrl name="articleUrl" value="';
+$out+=$escape(articleUrl);
+$out+='"> <font color="red">为了验证您的达人账号信息的有效性，请填写一篇已发布的文章链接，感谢配合</font><br><br> 链接格式参考一下内容:<br> https://market.m.taobao.com/apps/market/content/index.html?contentId=200505738511 </div> </div>  </div> </form> </div> <div class="modal-footer" style="margin-top: 0;"> <button type="button" class="btn btn-primary bind bind-click" validate-form="modify_daren_info_form" bind-method="submitModifyDrInfo">保存</button> </div> </div> </div> </div> ';
+return new String($out);
+});});

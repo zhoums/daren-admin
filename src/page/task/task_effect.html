@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Expires" content="0">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Cache-control" content="no-cache">
+<meta http-equiv="Cache" content="no-cache">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>任务管理</title>
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link href="/css/boot.css" rel="stylesheet">
+	<link href="/plugins/dropzone/dropzone.min.css" rel="stylesheet" type="text/css">
+    <style type="text/css">
+    .imgWrapper{text-align: center;}
+    .imgWrapper li{position:relative;display: inline-block;margin-right: 15px;width: 100px;height: 100px;border: 1px solid #ddd;vertical-align: middle;text-align: center;}
+    .imgWrapper img{max-width: 100%;max-height: 100%;}
+    .deleteImg{display:none;position: absolute;top: -10px;right: -10px; width: 20px;height: 20px;font-size: 14px;border-radius: 10px;border:1px solid #ccc;background: #fff;color: #666;text-align: center;}
+    .imgWrapper li:hover .deleteImg{display: block;}
+    table{table-layout:fixed;word-break:break-all;}
+    </style>
+</head>
+
+<body class="gray-bg">
+    <div class="wrapper wrapper-content animated fadeIn" id="list-box">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>任务列表</h5>
+                        <div class="ibox-tools">
+                        </div>
+                    </div>
+                    <!--正文开始-->
+                    <div class="ibox-content search-box" id="search-box"> 
+                        <form class="form-horizontal" action="#"  id="task-list-form">  
+                          
+                            <div class="form-group">  
+                                <label class="col-sm-2 control-label">任务ID:</label>
+                                <div class="col-md-2">
+                                    <input type="text" name="searchTaskId" id="searchTaskId" class="form-control" onkeyup="value=value.replace(/[^\d]/g,'')">
+                                </div>      
+		                        <label class="col-sm-1 control-label">文章标题:</label>
+                                <div class="col-md-2">
+                                    <input type="text" name="searchArticleTitle" id="searchArticleTitle" class="form-control">
+                                </div>
+                                <label class="col-sm-1 control-label">文章链接:</label>
+                                <div class="col-md-2">
+                                    <input type="text" name="searchArticleUrl" id="searchArticleUrl" class="form-control">
+                                </div>         
+                            </div>
+                             
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-sm-12 text-center">
+                                        <button type="button" class="btn btn-sm btn-info bind bind-click" bind-method="taskListSearch" validate-form="task-list-form" > 查询</button> 
+                                   		<button type="button" class="btn btn-sm btn-info bind bind-click" bind-method="taskEffectListSearchExport" validate-form="task-list-form" data-loading-text="正在导出,请耐心等待……" > 导出</button> 
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        <table id="tb-my-task-effect-list" class="table table-striped table-bordered table-hover table-highlight-head table-responsive">
+                            <thead>
+                                <tr>
+                                    <th field="idStr"> 任务ID </th>
+                                    <th field="articleTitle"> 标题 </th>
+                                    <th field="articleUrl"> 链接 </th>
+                                    <th field="pv">阅读次数 </th> 
+                                    <th field="uv">引导进店人数</th> 
+                                    <th field="sPv">引导进店次数</th> 
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                    <!--正文结束-->
+                </div>
+            </div>
+        </div>
+    </div>
+    <script id="temp" type="text/html">
+        
+    </script>
+    <script id="current-page" current-page="my_task_effect" target-module="task" src="/js/common/require.js"></script>
+    <script>
+    requirejs(['/js/common/boot.js?v='+new Date().getTime()], function(boot) {
+        require(['common/base/base'], function(base) {
+        	$(document).keydown(function(event){
+          	  	switch(event.keyCode){
+          	     	case 13:return false; 
+          	    }
+          	});
+        });
+    });
+    </script>
+</body>
+
+</html>

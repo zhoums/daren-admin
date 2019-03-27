@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="Expires" content="0">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Cache-control" content="no-cache">
+<meta http-equiv="Cache" content="no-cache">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>邀请注册</title>
+<link rel="shortcut icon" href="/img/favicon.ico">
+<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="/plugins/bootstrapValidator/css/bootstrapValidator.min.css" />
+<style type="text/css">
+.required {
+	color: red !important;
+	margin: 0px 5px;
+}
+
+.clearfix:after {
+	content: '\20';
+	display: block;
+	height: 0rem;
+	clear: both;
+}
+
+.clearfix {
+	display: block;
+}
+</style>
+</head>
+<body style="background: url('/img/bg.jpg') no-repeat; background-size: 100%;">
+	<div class="container-fluid">
+		<br>
+		<div class="row">
+			<div class="col-md-4"></div>
+			<div class="col-md-4" style="background: url('/img/logframe_register.png') no-repeat; background-size: 100% 100%; padding: 0px 20px;">
+				<div class="text-center" style="margin-top: 100px;">
+					<h1>达人主体注册</h1>
+				</div>
+				<hr>
+				<form class="form-horizontal" id="dr_info_form">
+					<div class="form-group">
+						<label for="mediaType" class="col-sm-3 control-label">账号类型<span class="required">*</span></label>
+						<div class="col-sm-8">
+							<label class="radio-inline"> <input type="radio" name="mediaType" value="1" checked="checked"> 个人
+							</label> <label class="radio-inline"> <input type="radio" name="mediaType" value="2"> 公司/工作室
+							</label>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="regAccount" class="col-sm-3 control-label">注册账号<span class="required">*</span></label>
+						<div class="col-sm-8">
+							<input type="text" class="form-control" id="regAccount" readonly="readonly" name="regAccount" placeholder="请输入邮箱地址"> <input type="hidden" name="mediaType" value="2" />
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="principalName" class="col-sm-3 control-label">负责人名字<span class="required">*</span></label>
+						<div class="col-sm-8">
+							<input type="text" class="form-control" id="principalName" name="principalName">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="contactPhone" class="col-sm-3 control-label">负责人手机号码</label>
+						<div class="col-sm-8">
+							<input type="text" class="form-control" id="contactPhone" name="contactPhone">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="password" class="col-sm-3 control-label">密码<span class="required">*</span></label>
+						<div class="col-sm-8">
+							<input type="password" class="form-control" id="password" name="password">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="confirmPassword" class="col-sm-3 control-label">再次输入你的密码<span class="required">*</span></label>
+						<div class="col-sm-8">
+							<input type="password" class="form-control" id="confirmPassword" name="confirmPassword">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="verifyCode" class="col-sm-3 control-label">推荐码<span class="required">*</span></label>
+						<div class="col-sm-8">
+							<input type="text" class="form-control" readonly="readonly" name="verifyCode" id="verifyCode">
+						</div>
+					</div>
+
+					<div class="form-group">
+						<div class="col-sm-offset-2 col-sm-10">
+							<div class="checkbox">
+								<label> <input type="checkbox" name="protocol"> <a href="service-agreement.html" target="_blank">《豹纹平台服务条款》</a>|<a href="privacy-policy.html"
+									target="_blank">《法律声明和隐私权政策》</a>
+								</label>
+							</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-sm-offset-6 col-sm-10">
+							<button type="button" class="btn btn-default" id="submitDrInfo">注册</button>
+						</div>
+					</div>
+				</form>
+			</div>
+			<div class="col-md-4"></div>
+		</div>
+	</div>
+	<div class="modal fade" tabindex="-1" role="dialog" id="msg_modal" data-backdrop="static">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<h4 class="modal-title"></h4>
+				</div>
+				<div class="modal-body"></div>
+				<!-- 				<div class="modal-footer"> -->
+				<!-- 					<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button> -->
+				<!-- 				</div> -->
+			</div>
+			<!-- /.modal-content -->
+		</div>
+		<!-- /.modal-dialog -->
+	</div>
+	<script type="text/javascript" src="/js/jquery.min.js"></script>
+	<script type="text/javascript" src="/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="/plugins/bootstrapValidator/js/bootstrapValidator.min.js"></script>
+	<script type="text/javascript" src="/plugins/bootstrapValidator/js/language/zh_CN.js"></script>
+	<script type="text/javascript">
+		function GetRequestParam(param) { //param为要获取的参数名 注:获取不到是为null
+			var currentUrl = window.location.href; //获取当前链接
+			var arr = currentUrl.split("?");//分割域名和参数界限
+			if (arr.length > 1) {
+				arr = arr[1].split("&");//分割参数
+				for (var i = 0; i < arr.length; i++) {
+					var tem = arr[i].split("="); //分割参数名和参数内容
+					if (tem[0] == param) {
+						return tem[1];
+					}
+				}
+				return null;
+			} else {
+				return null;
+			}
+		}
+		$(function() {
+
+			(function() {
+				$("[name=verifyCode]").val(GetRequestParam("ic"));
+				$.post("/daren-web/daren/getMediaRegInvitation", {
+					code : GetRequestParam("ic")
+				}, function(resp) {
+					if (resp.status == 0) {
+						var regOjb = resp.result;
+						if (resp.result) {
+							$("#regAccount").val(resp.result.email);
+							$("#principalName").val(resp.result.principalName);
+							$("#contactPhone").val(resp.result.contactPhone);
+						}
+
+					}
+				});
+			})();
+
+			$("[name=mediaType]").click(function() {
+				var that = this;
+				var mediaType = parseInt($(that).val());
+				var title;
+				if (mediaType == 1) {
+					title = "负责人名字";
+				} else {
+					title = "公司/工作室名字"
+				}
+				$("[for=principalName]").text(title);
+			});
+
+			$("#submitDrInfo").click(function() {
+				$('#dr_info_form').bootstrapValidator('validate');
+			});
+
+			$("#dr_info_form").bootstrapValidator({
+				message : 'This value is not valid',
+				feedbackIcons : {
+					valid : 'glyphicon glyphicon-ok',
+					invalid : 'glyphicon glyphicon-remove',
+					validating : 'glyphicon glyphicon-refresh'
+				},
+				fields : {
+					regAccount : {
+						validators : {
+							emailAddress : {},
+							notEmpty : {}
+						}
+					},
+					principalName : {
+						validators : {
+							notEmpty : {}
+						}
+					},
+					contactPhone : {
+						validators : {
+							notEmpty : {},
+							digits : {},
+							phone : {
+								country : 'CN'
+							}
+						}
+					},
+					password : {
+						validators : {
+							notEmpty : {},
+							stringLength : {//检测长度
+								min : 6,
+								message : '密码长度必须在6位以上'
+							},
+							regexp : {//正则验证
+								regexp : /^(?!([a-zA-Z]+|\d+)$)[a-zA-Z\d]{6,}$/,
+								message : '密码必须是字母加数字组成'
+							}
+						}
+					},
+					confirmPassword : {
+						validators : {
+							notEmpty : {},
+							identical : {
+								field : 'password'
+							}
+						}
+					},
+					verifyCode : {
+						validators : {
+							notEmpty : {}
+						}
+					},
+					protocol : {
+						validators : {
+							notEmpty : {
+								message : "请勾选必选项"
+							}
+						}
+					}
+				}
+			}).on('success.form.bv', function(e) {
+				var $form = $(e.target);
+				var dataArray = $form.serializeArray();
+				var data = {};
+				$.each(dataArray, function() {
+					data[this.name] = this.value;
+				});
+				data.mediaType = $("[name=mediaType]:checked").val();
+				$.post("/daren-web/daren/drenRegister", data, function(data) {
+					var title;
+					var content;
+					var succ = true;
+					if (data.status > 0) {
+						title = "ERROR";
+						content = data.msg;
+						succ = false;
+					} else {
+						title = "SUCCESS";
+						content = "注册成功！";
+						succ = true;
+					}
+					$('#msg_modal .modal-title').text(title);
+					$('#msg_modal .modal-body').text(content);
+					$('#msg_modal').modal("show");
+
+					if (succ) {
+						var countDown = 5;
+						var si = setInterval(function() {
+							countDown--;
+							$('#msg_modal .modal-body').text("注册成功！" + countDown + "秒后自动跳转至登陆页面...");
+						}, 1000);
+
+						var st = setTimeout(function() {
+							window.clearInterval(si);
+							window.location.href = "/login.html";
+						}, 5000);
+					}
+
+				});
+			});
+		});
+	</script>
+</body>
+</html>

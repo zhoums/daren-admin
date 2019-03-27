@@ -1,0 +1,113 @@
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/media-cms/!svn/ver/6050/trunk/code/source/client/daren-front/src/js/common
+END
+es6-promise.js
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/media-cms/!svn/ver/2305/trunk/code/source/client/daren-front/src/js/common/es6-promise.js
+END
+data.js
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/media-cms/!svn/ver/3250/trunk/code/source/client/daren-front/src/js/common/data.js
+END
+api.js
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/media-cms/!svn/ver/544/trunk/code/source/client/daren-front/src/js/common/api.js
+END
+cwindow.js
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/media-cms/!svn/ver/779/trunk/code/source/client/daren-front/src/js/common/cwindow.js
+END
+require.js
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/media-cms/!svn/ver/544/trunk/code/source/client/daren-front/src/js/common/require.js
+END
+dom.js
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/media-cms/!svn/ver/5134/trunk/code/source/client/daren-front/src/js/common/dom.js
+END
+http.js
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/media-cms/!svn/ver/6050/trunk/code/source/client/daren-front/src/js/common/http.js
+END
+jquery.raty.min.js
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/media-cms/!svn/ver/835/trunk/code/source/client/daren-front/src/js/common/jquery.raty.min.js
+END
+jquery-1.11.3.min.js
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/media-cms/!svn/ver/544/trunk/code/source/client/daren-front/src/js/common/jquery-1.11.3.min.js
+END
+datatable.js
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/media-cms/!svn/ver/5780/trunk/code/source/client/daren-front/src/js/common/datatable.js
+END
+artTemplate.js
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/media-cms/!svn/ver/544/trunk/code/source/client/daren-front/src/js/common/artTemplate.js
+END
+hoverPreview.js
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/media-cms/!svn/ver/903/trunk/code/source/client/daren-front/src/js/common/hoverPreview.js
+END
+permission.json
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/media-cms/!svn/ver/835/trunk/code/source/client/daren-front/src/js/common/permission.json
+END
+table.js
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/media-cms/!svn/ver/544/trunk/code/source/client/daren-front/src/js/common/table.js
+END
+core.js
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/media-cms/!svn/ver/6050/trunk/code/source/client/daren-front/src/js/common/core.js
+END
+DIC.js
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/media-cms/!svn/ver/544/trunk/code/source/client/daren-front/src/js/common/DIC.js
+END
+boot.js
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/media-cms/!svn/ver/5803/trunk/code/source/client/daren-front/src/js/common/boot.js
+END
+cache.js
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/media-cms/!svn/ver/544/trunk/code/source/client/daren-front/src/js/common/cache.js
+END

@@ -1,0 +1,203 @@
+<div class="modal fade" id="entry_effect">
+	<div class="modal-dialog" style="width: 60%;">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"
+					aria-hidden="true">&times;</button>
+				<h4 class="modal-title">
+					<center>成效录入</center>
+				</h4>
+			</div>
+			<div class="modal-body"> 
+			<div>
+					<p style="padding-left:8%;">温馨提示：使用此功能提交的成效数据，提交后，需要等待平台人员审核。审核通过后，所填写的数据才能活动平台认可。
+					<br>不想这么麻烦填写数据？试用<a class="bind bind-click" href="#" bind-method="viewAutoTab" style="font-size:150%"><strong>智能回填</strong></a>快速回填成效数据</p>
+				</div>
+				<hr
+					style="height: 1px; border: none; border-top: 1px solid #999999;"></hr>
+				
+
+				<form class="form-horizontal" id="entryEffect-form">
+					<div class="form-group">
+						<label class="col-sm-3 control-label"><span
+							class="required">*</span>阅读次数： </label>
+						<div class="col-sm-6">
+							<input class="form-control required bind" type="text" id="pv"
+								name="pv" onkeyup="value=value.replace(/\D/g,'')" />
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-3 control-label"><span
+							class="required">*</span>引导进店人数： </label>
+						<div class="col-sm-6">
+							<input class="form-control required bind" type="text" id="uv"
+								name="uv" onkeyup="value=value.replace(/\D/g,'')" />
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-3 control-label"><span
+							class="required">*</span>引导进店次数： </label>
+						<div class="col-sm-6">
+							<input class="form-control required bind" type="text" id="sPv"
+								name="sPv" onkeyup="value=value.replace(/\D/g,'')" />
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-3 control-label">累计互动次数： </label>
+						<div class="col-sm-6">
+							<input class="form-control bind" type="text" id="interactions"
+								name="interactions" onkeyup="value=value.replace(/\D/g,'')" />
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-3 control-label">累计评论次数： </label>
+						<div class="col-sm-6">
+							<input class="form-control bind" type="text" id="comments"
+								name="comments" onkeyup="value=value.replace(/\D/g,'')" />
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-3 control-label">累计点赞次数： </label>
+						<div class="col-sm-6">
+							<input class="form-control bind" type="text" id="praises"
+								name="praises" onkeyup="value=value.replace(/\D/g,'')" />
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-3 control-label">累计转发次数： </label>
+						<div class="col-sm-6">
+							<input class="form-control bind" type="text" id="retransmissions"
+								name="retransmissions" onkeyup="value=value.replace(/\D/g,'')" />
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-3 control-label"> <span
+							class="required">*</span> 数据采集日期：
+						</label>
+						<div class="col-sm-6">
+							<input class="form-control  required bind bind-date layer-date"
+								type="text" id="collectTime" name="collectTime" autocomplete="off"/>
+						</div>
+					</div>
+					
+					<input type="hidden" id="id" name="id" /> 
+					<input type="hidden" id="taskId" name="taskId" />
+
+					<h4>
+						<b>已填回稿数据</b>
+					</h4>
+					<hr
+						style="height: 1px; border: none; border-top: 1px solid #999999;"></hr>
+					<div class="form-group">
+						<label class="col-sm-3 control-label"> <span
+							class="required">*</span> 发布日期:
+						</label>
+						<div class="col-sm-6">
+							<input class="form-control  required bind bind-date layer-date" disabled
+								type="text" id="issueDate" name="issueDate" />
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-3 control-label"><span
+							class="required">*</span>内容标题： </label>
+						<div class="col-sm-6">
+							<input class="form-control required bind" type="text" disabled
+								id="articleTitle" name="articleTitle" />
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-3 control-label"><span
+							class="required">*</span>内容链接： </label>
+						<div class="col-sm-6">
+							<input class="form-control required bind" type="text" disabled
+								id="articleUrl" name="articleUrl" />
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-3 control-label"><span
+							class="required">*</span>平台审核状态: </label>
+						<div class="col-sm-6">
+							<select name="articleStatus" id="articleStatus" disabled
+								class="form-control required bind bind-change">
+								<option value="1" selected>待审核</option>
+								<option value="2">平台审核通过</option>
+								<option value="3">平台审核不通过</option>
+							</select>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-3 control-label">备注: </label>
+						<div class="col-sm-6">
+							<textarea name="articleRemark" id="articleRemark" disabled
+								class="form-control" rows="3"></textarea>
+						</div>
+					</div>
+					<input type="hidden" id="id" name="id" />
+				</form>
+				<hr style=" height:1px;border:none;border-top:1px solid#999999;"></hr>
+				<form class="form-horizontal" id="effectFileForm" method="post"
+					enctype="multipart/form-data" name="effectFileForm">
+					<div class="form-group">
+						<label class="col-sm-3 control-label"> <span
+							class="required">*</span> 成效界面截图：
+						</label>
+						<!-- <div class="col-sm-4">
+							<input type="file" id="effectFile" name="effectFile" 
+								enctype="multipart/form-data">
+						</div>
+						<div class="col-sm-2">
+							<input id="btnSubmitEffectImages" type="button" class="btn btn-primary bind bind-click" bind-method="submitEffectImages" value="上传"> 
+							<a id="exampleImg" data-iurl="/img/effect.png" href="/img/effect.png" target="_blank"  class="glyphicon glyphicon-question-sign exampleImg" ></a>
+						</div> -->
+					</div>
+				</form>
+				
+				
+				
+		<div class="modal-content" id="dropzone_content">
+			<input type="text" id="img_input_effetc" value="[]" style="height: 50px;width: 100%;display: none">
+			<div id="imgs_show_effetc" class="dropzone dropzone-previews"></div>
+			<form action="/daren-web/upload/uploadSingle" class="dropzone needsclick dz-clickable" id="demoDropzoneEffetc">
+				<div class="dz-message needsclick">
+					在这里放下文件或点击上传<br> 
+					
+				</div>
+			</form>
+		</div>
+		
+		
+				<ul class="imgWrapper" id="imgEffectWrapper"></ul>
+
+				<!-- 
+				<form class="form-horizontal" id="articleFileForm" method="post"
+					enctype="multipart/form-data" name="articleFileForm">
+					<div class="form-group">
+						<label class="col-sm-3 control-label">回稿数据截图: </label>
+						<div class="col-sm-4">
+							<input type="file" id="articleFile" name="articleFile"
+								enctype="multipart/form-data">
+						</div>
+						<div class="col-sm-2">
+							<input id="btnSubmitArticleImages" type="button" class="btn btn-primary bind bind-click"
+								bind-method="submitArticleImages" value="上传">
+						</div>
+					</div>
+				</form>
+				 -->
+				<form class="form-horizontal" id="articleFileForm">
+					<div class="form-group">
+						<label class="col-sm-3 control-label">回稿数据截图: </label>
+					</div>
+				</form>
+				<ul class="imgWrapper" id="imgArticleWrapper"></ul>
+			</div>
+			<div class="modal-footer" style="margin-top: 0;">
+				<button type="button" class="btn btn-primary" data-dismiss="modal">
+					关闭</button>
+				<button id="submitEntryEffect" type="button" class="btn btn-primary bind bind-click"
+					validate-form="entryEffect-form" bind-method="submitEntryEffect">
+					保存</button>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+
+
+<!-- Mirrored from www.zi-han.net/theme/hplus/index_v1.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 20 Jan 2016 14:18:23 GMT -->
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="Expires" content="0">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Cache-control" content="no-cache">
+<meta http-equiv="Cache" content="no-cache">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--360浏览器优先以webkit内核解析-->
+
+
+    <title>茉莉传媒-达人系统</title>
+    <link href="/plugins/dropzone/dropzone.min.css" rel="stylesheet" type="text/css">
+     <link href="/css/boot.css" rel="stylesheet">
+	<style type="text/css">
+	.imgWrapper{text-align: center;}
+    .imgWrapper li{position:relative;display: inline-block;margin-right: 15px;width: 100px;height: 100px;border: 1px solid #ddd;vertical-align: middle;text-align: center;}
+    .imgWrapper img{max-width: 100%;max-height: 100%;}
+    .deleteImg{display:none;position: absolute;top: -10px;right: -10px; width: 20px;height: 20px;font-size: 14px;border-radius: 10px;border:1px solid #ccc;background: #fff;color: #666;text-align: center;}
+    .imgWrapper li:hover .deleteImg{display: block;}
+	table{table-layout:fixed;word-break:break-all;}
+	.tag{position:relative;display:inline-block;margin: 0 5px 10px 0;padding: 0px 5px;text-align: center;border: 2px solid #ec5fff;background: #f5b0ff;color: white; font-weight: bold; font-size: large;}
+    .tagText{position:relative;width:145px;display:inline-block;margin: -20px 17px 0 0;}
+    fieldset{padding:.35em .625em .75em;margin:0 2px 20px;border:1px solid silver;border-radius:8px}
+	legend{padding:.5em;border:0;width:auto;margin-bottom:0;font-size:15px}
+    </style>
+    <style type="text/css">
+    	.hoverDiv{
+    		display: inline-block;
+    		position: relative;
+    	}
+    	.hovermsg{
+    		display: inline-block;
+    		position: relative;
+    		margin-left: -20px;
+    		margin-bottom: 10px;
+    	}
+    	 .hovermsg>span{
+		    position: relative;
+		    top: 25px;
+		    left: -20px;
+    	} 
+    	
+    </style>
+    <!-- <link href="/css/common/jquery.dataTables.css" type="text/css" rel="stylesheet"> -->
+</head>
+
+<body class="gray-white">
+		<div class="wrapper wrapper-content animated fadeIn" id="list-box">
+	        <div class="row" style="display:none">
+	            <div class="col-sm-12">
+	                <div class="ibox float-e-margins">
+	                    <div class="ibox-title">
+	                        <h5>信息面板</h5>
+	                        <div class="ibox-tools">
+	                        </div>
+	                    </div>
+	                     
+	                    <!--正文开始-->
+	                    <div class="ibox-content search-box" id="search-box"> 
+	                        <form class="form-horizontal" action="#"  id="dr-task-list-form" style="padding-bottom: 10px;" >  
+	                            <!-- <div class="form-group"  style="padding: 15px 20px;margin-bottom:0px"> -->
+	                            <fieldset>
+	                            <legend>筛选</legend>
+	                            	<label class="col-sm-2 control-label">达人:</label>
+	                                <div class="col-sm-2">
+	                                    <select class="form-control " name="searchDrId" id="searchDrId" multiple="multiple" style="width:100%"> 
+	                                    </select>
+	                                </div>
+	                                <label class="col-sm-2 control-label">AE:</label>
+	                                <div class="col-sm-2">
+	                                    <select class="form-control " name="searchAeId" id="searchAeId" multiple="multiple" style="width:100%"> 
+	                                    </select>
+	                                </div>
+	                                <div id="SettleAuditStatus" style="display: none;">
+		                                 <label class="col-sm-2 control-label">结算确认状态:</label>
+		                                <div class="col-sm-2">
+		                                    <select class="form-control" name="searchSettleAuditStatus" id="searchSettleAuditStatus" style="width:100%"> 
+		                                    </select>
+		                                </div>
+	                                </div>
+	                                <div class="col-sm-2 col-sm-offset-6" style="padding-top: 10px">
+	                                	<button type="button" class="btn btn-sm btn-info bind bind-click" bind-method="drTaskListSearch" validate-form="dr-task-list-form" > 查询</button>
+	                          			<!-- <button type="button" id="infoViewExport" class="btn btn-sm btn-info bind bind-click" bind-method="waitDeliveryArticleExport" validate-form="dr-task-list-form" > 导出</button> -->
+	                          		</div> 
+                          		</fieldset>
+	                            <!--  </div> -->
+	                            <div class="form-group">
+	                            	<div style="text-align:center;margin:auto;margin-top:15px;">
+	                            	<input type="hidden" id="searchByWhat" name="searchByWhat">
+	                            	
+	                            	<div class="hovermsg">
+	                            	<a  href="#" class="col-sm-1.5 bind bind-click tag" id="waitDeliveryArticle" bind-method="waitDeliveryArticle" validate-form="dr-task-list-form" >1.待回稿:
+	                            	</a>
+									<span data-toggle="tooltip" data-placement="bottom" title="收到的写稿任务，需要写稿后回填链接" data-html='true' class="glyphicon glyphicon-question-sign" ></span>	
+	                            	</div>
+	                            	
+			                        <div class="hovermsg">
+			                        <a  href="#" class="col-sm-1.5 bind bind-click tag" id="waitAuditArticle" bind-method="waitAuditArticle" validate-form="dr-task-list-form" >2.待平台审核:
+			                        </a>
+			                        <span data-toggle="tooltip" data-placement="bottom" title="已经回稿，这些任务需要等待达人平台审核" data-html='true' class="glyphicon glyphicon-question-sign" ></span>	
+			                        </div>
+			                        
+			                        <div class="hovermsg">
+			                        <a  href="#" class="col-sm-1.5 bind bind-click tag" id="waitEntryEffect" bind-method="waitEntryEffect" validate-form="dr-task-list-form" >3.待回填成效:
+			                        </a>
+			                        	<a href="#" bind-method="viewAutoTab" style="position: relative;top: 25px;left: -20px;" data-toggle="tooltip" data-placement="bottom" title="已经回稿，并且状态是平台审核通过的任务。这些任务需要回填成效数据。建议使用《智能回填》功能导入成效数据" data-html='true' class="bind bind-click glyphicon glyphicon-question-sign" ></a>	
+			                        </div>
+			                        
+			                        <div class="hovermsg">
+			                        <a  href="#" class="col-sm-1.5 bind bind-click tag" id="waitAuditEffect" bind-method="waitAuditEffect" validate-form="dr-task-list-form" >4.待AE确认:
+			                        </a>
+		                        	<span data-toggle="tooltip" data-placement="bottom" title="这些任务已经回填过成效数据。需要等待AE对回稿情况，成效数据做审核" data-html='true' class="glyphicon glyphicon-question-sign" ></span>	
+		                        	</div>
+		                        	
+			                        <div class="hovermsg">
+			                        <a  href="#" class="col-sm-1.5 bind bind-click tag" id="waitSettle" bind-method="waitSettle" validate-form="dr-task-list-form" >5.待申请结算:
+			                        </a>
+		                        	<span data-toggle="tooltip" data-placement="bottom" title="AE审核后的任务，这些任务状态为“待结算”，可以申请结算" data-html='true' class="glyphicon glyphicon-question-sign" ></span>	
+			                        </div>
+			                        
+			                        <!-- 发票提供类型为-------不开票 -->
+			                        <div id="noInvoice" class="hoverDiv">
+				                        <div class="hovermsg">
+				                        <a  href="#" class="col-sm-1.5 bind bind-click tag" id="waitAuditSettle" bind-method="waitAuditSettle" validate-form="dr-task-list-form" >6.结算中:
+				                        </a>
+			                        	<span data-toggle="tooltip" data-placement="bottom" title="已申请结算的任务，待财务审核" data-html='true' class="glyphicon glyphicon-question-sign" ></span>	
+				                        </div>
+				                        <div class="hovermsg">
+				                        <a  href="#" class="col-sm-1.5 bind bind-click tag" id="settledTask" bind-method="settledTask" validate-form="dr-task-list-form" >7.已结算:
+				                        </a>
+			                        	<span data-toggle="tooltip" data-placement="bottom" title="已结算的任务" data-html='true' class="glyphicon glyphicon-question-sign" ></span>	
+				                        </div>
+			                        </div>
+			                        <!-- 发票提供类型为-------不开票 -->
+			                        
+			                        <!-- 发票提供类型为-------先开票后打款 -->
+			                        <div id="invoiceFirst" class="hoverDiv">
+				                        <div class="hovermsg">
+				                        <a  href="#" class="col-sm-1.5 bind bind-click tag" id="settleAudit" bind-method="settleAudit" validate-form="dr-task-list-form" >6.结算确认:
+				                        </a>
+			                        	<span data-toggle="tooltip" data-placement="bottom" title="等待茉莉传媒后台人员进行确认" data-html='true' class="glyphicon glyphicon-question-sign" ></span>	
+				                        </div>
+				                        <div class="hovermsg">
+				                        <a  href="#" class="col-sm-1.5 bind bind-click tag" id="waitInvoice" bind-method="waitInvoice" validate-form="dr-task-list-form" >7.待开发票:
+				                        </a>
+			                        	<span data-toggle="tooltip" data-placement="bottom" title="茉莉传媒后台人员已进行确认，等待贵方开发票" data-html='true' class="glyphicon glyphicon-question-sign" ></span>	
+				                        </div>
+				                         <div class="hovermsg">
+				                        <a  href="#" class="col-sm-1.5 bind bind-click tag" id="invoiceAudit" bind-method="invoiceAudit" validate-form="dr-task-list-form" >8.发票待确认:
+				                        </a>
+			                        	<span data-toggle="tooltip" data-placement="bottom" title="等待茉莉传媒后台人员进行确认" data-html='true' class="glyphicon glyphicon-question-sign" ></span>	
+				                        </div>
+				                         <div class="hovermsg">
+				                        <a  href="#" class="col-sm-1.5 bind bind-click tag" id="waitAuditSettle" bind-method="waitAuditSettle" validate-form="dr-task-list-form" >9.结算中:
+				                        </a>
+			                        	<span data-toggle="tooltip" data-placement="bottom" title="已申请结算的任务，待财务审核" data-html='true' class="glyphicon glyphicon-question-sign" ></span>	
+				                        </div>
+				                        <div class="hovermsg">
+				                        <a  href="#" class="col-sm-1.5 bind bind-click tag" id="settledTask" bind-method="settledTask" validate-form="dr-task-list-form" >10.已结算:
+				                        </a>
+			                        	<span data-toggle="tooltip" data-placement="bottom" title="已结算的任务" data-html='true' class="glyphicon glyphicon-question-sign" ></span>	
+				                        </div> 
+			                        </div> 
+			                        <!-- 发票提供类型为-------先开票后打款 -->
+			                        
+			                        <!-- 发票提供类型为-------先打款后开票 -->
+			                        <div id="payFirst" class="hoverDiv">
+				                        <div class="hovermsg">
+				                        <a  href="#" class="col-sm-1.5 bind bind-click tag" id="waitInvoice" bind-method="waitInvoice" validate-form="dr-task-list-form" >8.待开发票:
+				                        </a>
+			                        	<span data-toggle="tooltip" data-placement="right" title="茉莉传媒后台人员已进行确认，等待贵方开发票" data-html='true' class="glyphicon glyphicon-question-sign" ></span>	
+				                        </div>
+				                         <div class="hovermsg">
+				                        <a  href="#" class="col-sm-1.5 bind bind-click tag" id="invoiceAudit" bind-method="invoiceAudit" validate-form="dr-task-list-form" >9.发票待确认:
+				                        </a>
+			                        	<span data-toggle="tooltip" data-placement="right" title="等待茉莉传媒后台人员进行确认" data-html='true' class="glyphicon glyphicon-question-sign" ></span>	
+				                        </div>
+			                        </div>
+			                        <!-- 发票提供类型为-------先打款后开票 -->
+			                        
+			                        </div>
+		                        </div>
+	                       </form>
+	                       	 <div class="container-fluid" id="editInvoice" style="display:none;">
+		                       	 <div class="row">
+		                       	 	<button type="button" class="btn btn-sm btn-info bind bind-click" bind-method="financeBillingInvoiceModal" tag="waitInvoice")>批量开票</button>
+		                       	 	<button type="button" class="btn btn-sm btn-info bind bind-click" bind-method="financeBillingInvoiceModal" data-update="true" tag="waitInvoice">修改开票</button>
+		                       	 </div>
+	                       	 </div>
+		                     <table id="tb-dr-task-list" class="table table-striped table-bordered table-hover table-highlight-head table-responsive" style="overflow-x:visible">
+		                         <thead>
+		                             <tr>
+		                             	 <th field="check" width="40px"><input type="checkbox" id="cbCheckAll" /></th>
+		                                 <th field="idStr"> 任务ID </th>
+		                                 <th field="resourceItemIdStr"> 需求ID </th>
+		                                 <th field="estRetrieveTime"> 预计回稿时间 </th>
+		                                 <th field="shopNames"> 店铺 </th>
+		                                 <th field="aeName"> AE </th>
+		                                 <th field="resourceLocationStr"> 渠道 </th> 
+		                                 <th field="drName"> 达人 </th>
+		                                 <th field="drFee"> 费用 </th> 
+		                                 <th field="mainProducts">主推商品 </th> 
+		                                 <th field="platformStr">平台 </th>
+		                                 <th field="statusStr"> 任务状态 </th> 
+		                                 <th id="rowPV" field="pv">浏览次数 </th> 
+		                                 <th id="rowUV" field="uv">引导进店人数 </th> 
+		                              <!--    <th id="accountPeriod" field="accountPeriod">账期 </th>  -->
+		                              	 <th id="invoiceAuditStatusStr" field="invoiceAuditStatusStr">开票审核状态</th> 
+		                              	 <th id="invoiceAuditRemark" field="invoiceAuditRemark">开票审核备注</th> 
+		                              	 <th id="invoiceConfirmStatusStr" field="invoiceConfirmStatusStr">结算确认状态</th> 
+		                              	 <th id="invoiceConfirmRemark" field="invoiceConfirmRemark">结算确认备注</th> 
+		                              	 <th id="rowSettlementStatus" field="settlementStatus">结算状态</th> 
+		                              	 <th id="rowFinanceApplyRemark" field="financeApplyRemark">结算审核备注</th> 
+		                              	 <th id="rowAuditRemark" field="auditRemark">AE确认不通过原因</th> 
+		                                 <th field="op" width="70px"> 操作 </th>
+		                             </tr>
+		                         </thead>
+		                          <tbody>
+		                         </tbody>
+		                     </table>
+	                    <!--正文结束-->
+	                     </div>
+	                </div>
+                </div>
+	        </div>
+	    </div>
+    <script id="temp" type="text/html">
+        
+    </script>
+    <script id="current-page" current-page="home" target-module="admin" src="/js/common/require.js"></script>
+    <script>
+    requirejs(['/js/common/boot.js'], function(boot) {
+        require(['common/base/base'], function(base) {
+
+        });
+    });
+    </script>
+
+</body>
+
+
+<!-- Mirrored from www.zi-han.net/theme/hplus/index_v1.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 20 Jan 2016 14:18:30 GMT -->
+</html>

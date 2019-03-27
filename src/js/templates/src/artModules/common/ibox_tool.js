@@ -1,0 +1,2 @@
+/*TMODJS:{"version":17,"md5":"b56f8dd01e8082d00d5c6cdf3cb68225"}*/
+define(['../../../template',''],function(template){return template('src/artModules/common/ibox_tool', ' <a onClick="location.reload(true)"> <i class="fa fa-refresh"></i> </a>');});

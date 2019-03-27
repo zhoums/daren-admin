@@ -1,0 +1,748 @@
+[{
+	"id": 69,
+	"name": "整体概况",
+	"pId": 66,
+	"url": "/console/statistics/timeline/summary",
+	"type": 1,
+	"code": "1-63-66-",
+	"icon": "",
+	"rank": 0
+}, {
+	"id": 47,
+	"name": "查询代理园",
+	"pId": 15,
+	"url": "/console/kindergarten/list/ajax",
+	"type": 2,
+	"code": "1-14-15-",
+	"icon": "",
+	"rank": 0
+}, {
+	"id": 44,
+	"name": "跟进",
+	"pId": 11,
+	"url": "/console/followup/add",
+	"type": 2,
+	"code": "1-10-11-",
+	"icon": "",
+	"rank": 0
+}, {
+	"id": 43,
+	"name": "账号管理",
+	"pId": 11,
+	"url": "/console/agent/as",
+	"type": 2,
+	"code": "1-10-11-",
+	"icon": "",
+	"rank": 0
+}, {
+	"id": 42,
+	"name": "修改代理资料",
+	"pId": 11,
+	"url": "/console/agent/update",
+	"type": 2,
+	"code": "1-10-11-",
+	"icon": "",
+	"rank": 0
+}, {
+	"id": 41,
+	"name": "查看代理资料",
+	"pId": 11,
+	"url": "/console/agent/detail/",
+	"type": 2,
+	"code": "1-10-11-",
+	"icon": "",
+	"rank": 0
+}, {
+	"id": 40,
+	"name": "查询自己的代理",
+	"pId": 11,
+	"url": "/console/agent/list/ajax",
+	"type": 2,
+	"code": "1-10-11-",
+	"icon": "",
+	"rank": 0
+}, {
+	"id": 39,
+	"name": "修改角色",
+	"pId": 5,
+	"url": "/console/daren-web/role/update",
+	"type": 2,
+	"code": "1-3-5-",
+	"icon": "",
+	"rank": 0
+}, {
+	"id": 38,
+	"name": "角色授权",
+	"pId": 5,
+	"url": "/console/daren-web/role/**/perms",
+	"type": 2,
+	"code": "1-3-5-",
+	"icon": "",
+	"rank": 0
+}, {
+	"id": 37,
+	"name": "查询角色",
+	"pId": 5,
+	"url": "/console/daren-web/role/list/ajax",
+	"type": 2,
+	"code": "1-3-5-",
+	"icon": "",
+	"rank": 0
+}, {
+	"id": 36,
+	"name": "删除角色",
+	"pId": 5,
+	"url": "/console/daren-web/role/del",
+	"type": 2,
+	"code": "1-3-5-",
+	"icon": "",
+	"rank": 0
+}, {
+	"id": 35,
+	"name": "添加角色",
+	"pId": 5,
+	"url": "/console/daren-web/role/add",
+	"type": 2,
+	"code": "1-3-5-",
+	"icon": "",
+	"rank": 0
+}, {
+	"id": 48,
+	"name": "修改幼儿园资料",
+	"pId": 15,
+	"url": "/console/kindergarten/update",
+	"type": 2,
+	"code": "1-14-15-",
+	"icon": "",
+	"rank": 0
+}, {
+	"id": 49,
+	"name": "认证",
+	"pId": 16,
+	"url": "/console/kindergarten/update/v",
+	"type": 2,
+	"code": "1-14-16-",
+	"icon": "",
+	"rank": 0
+}, {
+	"id": 64,
+	"name": "园所状态数据",
+	"pId": 63,
+	"url": "",
+	"type": 1,
+	"code": "1-63-",
+	"icon": "",
+	"rank": 0
+}, {
+	"id": 71,
+	"name": "整体概况",
+	"pId": 64,
+	"url": "/console/statistics/index",
+	"type": 1,
+	"code": "1-63-64-",
+	"icon": "",
+	"rank": 0
+}, {
+	"id": 58,
+	"name": "显示设置",
+	"pId": 29,
+	"url": "/console/support/change_displaytype",
+	"type": 2,
+	"code": "1-28-29-",
+	"icon": "",
+	"rank": 0
+}, {
+	"id": 57,
+	"name": "删除公告",
+	"pId": 29,
+	"url": "/console/support/change_status",
+	"type": 2,
+	"code": "1-28-29-",
+	"icon": "",
+	"rank": 0
+}, {
+	"id": 56,
+	"name": "查看公告",
+	"pId": 29,
+	"url": "/console/support/announce/list/ajax",
+	"type": 2,
+	"code": "1-28-29-",
+	"icon": "",
+	"rank": 0
+}, {
+	"id": 55,
+	"name": "查询所有代理",
+	"pId": 11,
+	"url": "/console/agent/all",
+	"type": 2,
+	"code": "1-10-11-",
+	"icon": "",
+	"rank": 0
+}, {
+	"id": 54,
+	"name": "查询口碑园",
+	"pId": 15,
+	"url": "/console/kindergarten/list/ajax/kb",
+	"type": 2,
+	"code": "1-14-15-",
+	"icon": "",
+	"rank": 0
+}, {
+	"id": 53,
+	"name": "发布公告",
+	"pId": 29,
+	"url": "/console/support/add",
+	"type": 2,
+	"code": "1-28-29-",
+	"icon": "",
+	"rank": 0
+}, {
+	"id": 52,
+	"name": "授权",
+	"pId": 38,
+	"url": "/console/daren-web/role/**/perms",
+	"type": 3,
+	"code": "1-3-5-38-",
+	"icon": "",
+	"rank": 0
+}, {
+	"id": 51,
+	"name": "资源树",
+	"pId": 38,
+	"url": "/console/daren-web/perms/perms.json",
+	"type": 3,
+	"code": "1-3-5-38-",
+	"icon": "",
+	"rank": 0
+}, {
+	"id": 109,
+	"name": "设备库",
+	"pId": 108,
+	"url": "/console/video/live/device/list",
+	"type": 1,
+	"code": "1-108-",
+	"icon": "",
+	"rank": 0
+}, {
+	"id": 34,
+	"name": "修改/授权",
+	"pId": 4,
+	"url": "/console/daren-web/user/update",
+	"type": 2,
+	"code": "1-3-4-",
+	"icon": "",
+	"rank": 0
+}, {
+	"id": 33,
+	"name": "删除账户",
+	"pId": 4,
+	"url": "/console/daren-web/user/del/",
+	"type": 2,
+	"code": "1-3-4-",
+	"icon": "",
+	"rank": 0
+}, {
+	"id": 32,
+	"name": "查询账户",
+	"pId": 4,
+	"url": "/console/daren-web/user/list/ajax",
+	"type": 2,
+	"code": "1-3-4-",
+	"icon": "",
+	"rank": 0
+}, {
+	"id": 1,
+	"name": "根",
+	"pId": "",
+	"url": "/console",
+	"type": 0,
+	"code": "",
+	"icon": "",
+	"rank": 0
+}, {
+	"id": 103,
+	"name": "热点问题",
+	"pId": 102,
+	"url": "/console/customertool/helpcenter/hot/list",
+	"type": 1,
+	"code": "1-102-",
+	"icon": "",
+	"rank": 0
+}, {
+	"id": 10,
+	"name": "代理管理",
+	"pId": 1,
+	"url": "",
+	"type": 1,
+	"code": "1-",
+	"icon": "icon-user-md",
+	"rank": 0
+}, {
+	"id": 11,
+	"name": "代理总览",
+	"pId": 10,
+	"url": "/console/agent/list",
+	"type": 1,
+	"code": "1-10-",
+	"icon": "",
+	"rank": 0
+}, {
+	"id": 96,
+	"name": "登录日志",
+	"pId": 95,
+	"url": "/console/log/signin/list",
+	"type": 1,
+	"code": "1-95-",
+	"icon": "",
+	"rank": 0
+}, {
+	"id": 50,
+	"name": "添加",
+	"pId": 17,
+	"url": "/console/kindergarten/add",
+	"type": 2,
+	"code": "1-14-17-",
+	"icon": "",
+	"rank": 0
+}, {
+	"id": 93,
+	"name": "非完整数据",
+	"pId": 91,
+	"url": "/kindergarten/summary/month/*",
+	"type": 2,
+	"code": "1-26-27-91-",
+	"icon": "",
+	"rank": 0
+}, {
+	"id": 92,
+	"name": "完整数据",
+	"pId": 91,
+	"url": "/kindergarten/summary/month/full/*",
+	"type": 2,
+	"code": "1-26-27-91-",
+	"icon": "",
+	"rank": 0
+}, {
+	"id": 27,
+	"name": "幼儿园数据",
+	"pId": 26,
+	"url": "/console/export/kindergarten/summary",
+	"type": 1,
+	"code": "1-26-",
+	"icon": "",
+	"rank": 0
+}, {
+	"id": 89,
+	"name": "完整数据",
+	"pId": 82,
+	"url": "/console/export/kindergarten/summary/daily/full/*",
+	"type": 2,
+	"code": "1-26-27-82-",
+	"icon": "",
+	"rank": 0
+}, {
+	"id": 29,
+	"name": "公告总览",
+	"pId": 28,
+	"url": "/console/support/announce/list",
+	"type": 1,
+	"code": "1-28-",
+	"icon": "",
+	"rank": 0
+}, {
+	"id": 90,
+	"name": "非完整数据",
+	"pId": 82,
+	"url": "/console/export/kindergarten/summary/daily/*",
+	"type": 2,
+	"code": "1-26-27-82-",
+	"icon": "",
+	"rank": 0
+}, {
+	"id": 82,
+	"name": "每天数据",
+	"pId": 27,
+	"url": "/console/export/kindergarten/summary/daily",
+	"type": 2,
+	"code": "1-26-27-",
+	"icon": "",
+	"rank": 0
+}, {
+	"id": 30,
+	"name": "添加账户",
+	"pId": 4,
+	"url": "/console/daren-web/user/add",
+	"type": 2,
+	"code": "1-3-4-",
+	"icon": "",
+	"rank": 0
+}, {
+	"id": 91,
+	"name": "每月数据",
+	"pId": 27,
+	"url": "/console/export/kindergarten/summary/month",
+	"type": 2,
+	"code": "1-26-27-",
+	"icon": "",
+	"rank": 0
+}, {
+	"id": 67,
+	"name": "班级动态趋势",
+	"pId": 66,
+	"url": "/console/statistics/timeline/trend",
+	"type": 1,
+	"code": "1-63-66-",
+	"icon": "",
+	"rank": 1
+}, {
+	"id": 4,
+	"name": "后台账户",
+	"pId": 3,
+	"url": "/console/daren-web/user/list",
+	"type": 1,
+	"code": "1-3-",
+	"icon": "",
+	"rank": 1
+}, {
+	"id": 72,
+	"name": "园所活跃趋势",
+	"pId": 64,
+	"url": "/console/statistics/activetend",
+	"type": 1,
+	"code": "1-63-64-",
+	"icon": "",
+	"rank": 1
+}, {
+	"id": 66,
+	"name": "班级动态统计",
+	"pId": 63,
+	"url": "",
+	"type": 1,
+	"code": "1-63-",
+	"icon": "",
+	"rank": 1
+}, {
+	"id": 22,
+	"name": "待审核幼儿园",
+	"pId": 21,
+	"url": "/console/settlement/applyList",
+	"type": 1,
+	"code": "1-21-",
+	"icon": "",
+	"rank": 1
+}, {
+	"id": 12,
+	"name": "代理加盟申请",
+	"pId": 10,
+	"url": "/console/agent/apply",
+	"type": 1,
+	"code": "1-10-",
+	"icon": "",
+	"rank": 1
+}, {
+	"id": 101,
+	"name": "用户查询",
+	"pId": 100,
+	"url": "/console/member/search/index",
+	"type": 1,
+	"code": "1-100-",
+	"icon": "",
+	"rank": 1
+}, {
+	"id": 19,
+	"name": "代理数据",
+	"pId": 18,
+	"url": "/console/agent/pass/list",
+	"type": 1,
+	"code": "1-18-",
+	"icon": "",
+	"rank": 1
+}, {
+	"id": 99,
+	"name": "问题反馈",
+	"pId": 98,
+	"url": "/console/feedback/question/list",
+	"type": 1,
+	"code": "1-98-",
+	"icon": "",
+	"rank": 1
+}, {
+	"id": 15,
+	"name": "幼儿园总览",
+	"pId": 14,
+	"url": "/console/kindergarten/list",
+	"type": 1,
+	"code": "1-14-",
+	"icon": "",
+	"rank": 1
+}, {
+	"id": 14,
+	"name": "幼儿园管理",
+	"pId": 1,
+	"url": "",
+	"type": 1,
+	"code": "1-",
+	"icon": "icon-building",
+	"rank": 1
+}, {
+	"id": 73,
+	"name": "园所状态分布",
+	"pId": 64,
+	"url": "/console/statistics/kstatus",
+	"type": 1,
+	"code": "1-63-64-",
+	"icon": "",
+	"rank": 2
+}, {
+	"id": 107,
+	"name": "问题话术",
+	"pId": 100,
+	"url": "/console/customertool/documentsummart",
+	"type": 1,
+	"code": "1-100-",
+	"icon": "",
+	"rank": 2
+}, {
+	"id": 97,
+	"name": "幼儿园申请",
+	"pId": 14,
+	"url": "/console/kindergarten/apply/list",
+	"type": 1,
+	"code": "1-14-",
+	"icon": "",
+	"rank": 2
+}, {
+	"id": 75,
+	"name": "任务类型占比",
+	"pId": 66,
+	"url": "/console/statistics/timeline/style",
+	"type": 1,
+	"code": "1-63-66-",
+	"icon": "",
+	"rank": 2
+}, {
+	"id": 20,
+	"name": "幼儿园数据",
+	"pId": 18,
+	"url": "/console/kindergarten/pass/list",
+	"type": 1,
+	"code": "1-18-",
+	"icon": "",
+	"rank": 2
+}, {
+	"id": 18,
+	"name": "业绩数据",
+	"pId": 1,
+	"url": "",
+	"type": 1,
+	"code": "1-",
+	"icon": "icon-thumbs-up",
+	"rank": 2
+}, {
+	"id": 5,
+	"name": "角色管理",
+	"pId": 3,
+	"url": "/console/daren-web/role/list",
+	"type": 1,
+	"code": "1-3-",
+	"icon": "",
+	"rank": 2
+}, {
+	"id": 16,
+	"name": "待验证幼儿园",
+	"pId": 14,
+	"url": "/console/kindergarten/validate",
+	"type": 1,
+	"code": "1-14-",
+	"icon": "",
+	"rank": 2
+}, {
+	"id": 13,
+	"name": "添加代理",
+	"pId": 10,
+	"url": "/console/agent/add",
+	"type": 1,
+	"code": "1-10-",
+	"icon": "",
+	"rank": 2
+}, {
+	"id": 23,
+	"name": "本月结算幼儿园",
+	"pId": 21,
+	"url": "/console/settlement/settlementList",
+	"type": 1,
+	"code": "1-21-",
+	"icon": "",
+	"rank": 2
+}, {
+	"id": 21,
+	"name": "结算管理",
+	"pId": 1,
+	"url": "",
+	"type": 1,
+	"code": "1-",
+	"icon": " icon-usd",
+	"rank": 3
+}, {
+	"id": 24,
+	"name": "结算月度汇总",
+	"pId": 21,
+	"url": "/console/settlement/settlementAllList",
+	"type": 1,
+	"code": "1-21-",
+	"icon": "",
+	"rank": 3
+}, {
+	"id": 17,
+	"name": "添加幼儿园",
+	"pId": 14,
+	"url": "/console/kindergarten/new",
+	"type": 1,
+	"code": "1-14-",
+	"icon": "",
+	"rank": 3
+}, {
+	"id": 74,
+	"name": "园所活跃排行",
+	"pId": 64,
+	"url": "/console/statistics/k_activerank",
+	"type": 1,
+	"code": "1-63-64-",
+	"icon": "",
+	"rank": 3
+}, {
+	"id": 105,
+	"name": "全部问题",
+	"pId": 102,
+	"url": "/console/customertool/helpcenter/list",
+	"type": 1,
+	"code": "1-102-",
+	"icon": "",
+	"rank": 3
+}, {
+	"id": 70,
+	"name": "内容类型分布",
+	"pId": 66,
+	"url": "/console/statistics/timeline/content",
+	"type": 1,
+	"code": "1-63-66-",
+	"icon": "",
+	"rank": 3
+}, {
+	"id": 98,
+	"name": "反馈管理",
+	"pId": 1,
+	"url": "",
+	"type": 1,
+	"code": "1-",
+	"icon": "icon-headphones",
+	"rank": 4
+}, {
+	"id": 80,
+	"name": "班级动态排行",
+	"pId": 66,
+	"url": "/console/statistics/timeline/rank",
+	"type": 1,
+	"code": "1-63-66-",
+	"icon": "",
+	"rank": 4
+}, {
+	"id": 94,
+	"name": "园所活跃变化",
+	"pId": 64,
+	"url": "/console/statistics/activechange",
+	"type": 1,
+	"code": "1-63-64-",
+	"icon": "",
+	"rank": 4
+}, {
+	"id": 25,
+	"name": "结算阶段汇总",
+	"pId": 21,
+	"url": "/console/settlement/settlementStageList",
+	"type": 1,
+	"code": "1-21-",
+	"icon": "",
+	"rank": 4
+}, {
+	"id": 65,
+	"name": "指定园所查询",
+	"pId": 64,
+	"url": "/console/statistics/search",
+	"type": 1,
+	"code": "1-63-64-",
+	"icon": "",
+	"rank": 5
+}, {
+	"id": 100,
+	"name": "客服工具",
+	"pId": 1,
+	"url": "",
+	"type": 1,
+	"code": "1-",
+	"icon": "icon-cog",
+	"rank": 5
+}, {
+	"id": 63,
+	"name": "数据统计",
+	"pId": 1,
+	"url": "",
+	"type": 1,
+	"code": "1-",
+	"icon": "icon-bar-chart",
+	"rank": 6
+}, {
+	"id": 102,
+	"name": "帮助中心",
+	"pId": 1,
+	"url": "",
+	"type": 1,
+	"code": "1-",
+	"icon": " icon-warning-sign",
+	"rank": 6
+}, {
+	"id": 26,
+	"name": "数据下载",
+	"pId": 1,
+	"url": "",
+	"type": 1,
+	"code": "1-",
+	"icon": "icon-download-alt",
+	"rank": 7
+}, {
+	"id": 28,
+	"name": "系统公告",
+	"pId": 1,
+	"url": "",
+	"type": 1,
+	"code": "1-",
+	"icon": "icon-bullhorn",
+	"rank": 9
+}, {
+	"id": 95,
+	"name": "日志记录",
+	"pId": 1,
+	"url": "",
+	"type": 1,
+	"code": "1-",
+	"icon": "icon-time",
+	"rank": 10
+}, {
+	"id": 108,
+	"name": "视频直播管理",
+	"pId": 1,
+	"url": "",
+	"type": 1,
+	"code": "1-",
+	"icon": "icon-facetime-video",
+	"rank": 11
+}, {
+	"id": 3,
+	"name": "权限配置",
+	"pId": 1,
+	"url": "",
+	"type": 1,
+	"code": "1-",
+	"icon": " icon-lock",
+	"rank": 100
+}]

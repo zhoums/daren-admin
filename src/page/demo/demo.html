@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>达人列表</title>
+<link href="/css/boot.css" rel="stylesheet">
+<link href="/plugins/bootstrapFileInput/css/fileinput.css" rel="stylesheet" type="text/css">
+<link href="/plugins/dropzone/dropzone.min.css" rel="stylesheet" type="text/css">
+</head>
+
+<body class="gray-bg">
+	<div class="wrapper wrapper-content animated fadeIn" id="list-box">
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="ibox float-e-margins">
+					<div class="ibox-title">
+						<h5>Demo</h5>
+						<div class="ibox-tools"></div>
+					</div>
+					<br>
+					<button type="button" class="btn btn-sm btn-info bind bind-click" bind-method="openDropzoneModal">Dropzone</button>
+					<!-- <button type="button" class="btn btn-sm btn-info bind bind-click" bind-method="openJquploadDemoModal">上传文件</button> -->
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script id="current-page" current-page="demo" target-module="demo" src="/js/common/require.js"></script>
+	<script>
+		requirejs([ '/js/common/boot.js?v=' + new Date().getTime() ], function(boot) {
+			require([ 'common/base/base' ], function(base) {
+				$(document).keydown(function(event) {
+					switch (event.keyCode) {
+					case 13:
+						return false;
+					}
+				});
+			});
+		});
+	</script>
+</body>
+</html>

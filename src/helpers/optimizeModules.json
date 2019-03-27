@@ -1,0 +1,12 @@
+{
+	"modules": [{
+		"name": "common/boot",
+		"include": ["jquery"]
+	}, {
+		"name": "common/base/base",
+		"exclude": ["common/boot"]
+	}, {
+		"name": "page/admin",
+		"exclude": ["common/boot", "common/base/base"]
+	}]
+}

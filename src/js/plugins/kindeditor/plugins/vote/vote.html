@@ -1,0 +1,157 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<link id="easyuiTheme" rel="stylesheet" type="text/css" href="/easyui/themes/metro-blue/easyui.css">
+	<link rel="stylesheet" type="text/css" href="/easyui/themes/icon.css">
+	<script type="text/javascript" src="/easyui/jquery.min.js"></script>
+	<script type="text/javascript" src="/easyui/jquery.easyui.min.js"></script>
+	<script type="text/javascript" src="/easyui/easyui-lang-zh_CN.js"></script>
+	<script type="text/javascript" src="/js/main.js"></script>
+	<script type="text/javascript">
+	$(function(){
+		//图片列表
+		var pageSize = 10;
+		var titleWidth = 600;
+		var width = $(window).width();
+		var height = $(window).height() - $(document).scrollTop();
+		if(width < 1500) {
+			titleWidth = 320;
+		}
+		if(height < 800) {
+			pageSize = 10;
+		}
+		
+		dg = $('#tt').datagrid({
+			height:'auto',
+	        loadMsg:'数据加载中,请稍后……',    
+	        rownumbers: false,  
+	        pagination: true,  
+	        pageSize: pageSize,  
+	        singleSelect: true,  
+	        checkOnSelect:false,
+	        pagePosition:'bottom',
+//	         fitColumns: true,  
+	        autoRowHeight:true,
+	        fit: false,  
+	        striped: true,  
+	        multiSort:false,
+	        nowrap: false, 
+	        url : '/daren-web/vote/list',
+	        idField:'id',  
+	        toolbar: '#tb',
+	        columns:[[  
+				{field:'id',checkbox:true},
+	        	{field:'title', width:250, title:'投票标题',sortable:false},
+	        	{field:'beginTime', width:150, title:'开始时间',sortable:false,hidden:true,formatter:function(value, row, index){
+	            	if(!value) 
+	            		return "";
+	            	value = timestampToDate(value);
+	            	return value;
+	            }},
+	        	{field:'endTime', width:220, title:'截止时间',sortable:false,hidden:true,formatter:function(value, row, index){
+	            	if(!value) 
+	            		return "";
+	            	value = timestampToDate(value) + (value < new Date().getTime()?' （<font color="red">已截止</font>）':'');
+	            	return value;
+	            }},
+	        	{field:'peopleCount', width:100, title:'投票人数',sortable:false,hidden:true},
+	        	{field:'createTime', width:150, title:'创建时间',sortable:false,hidden:true,formatter:function(value, row, index){
+	            	if(!value) 
+	            		return "";
+	            	value = timestampToDate(value);
+	            	return value;
+	            }},
+	        ]],
+	        onLoadSuccess:function(data){
+				var rows = $('#tt').datagrid('getChecked');
+				$('#tt').datagrid('clearChecked');
+			},
+		})
+		$('#tt').datagrid('getPager').pagination({ 
+	        pageSize: pageSize,  
+	        pageList: [10, 20, 50, 100],
+	        pagePosition:'bottom',
+	        beforePageText: '第',
+	        afterPageText: '页    共 {pages} 页', 
+	        displayMsg: '当前显示 {from} - {to} 条记录   共 {total} 条记录', 
+	        onBeforeRefresh:function(){
+	            $(this).pagination('loading');
+	            $(this).pagination('loaded');
+	        }
+	    }); 
+	});
+	function getVoteHtml() {
+		var row = dg.datagrid('getChecked')[0]
+		var type = 'radio';
+		if(row.multi)
+			type = 'choose'
+		var items = new Array();
+		var html = '';
+		if(row.endTime < new Date().getTime()) { //已截止
+			var total = 0, left = 100;
+			for(var i = 0; i <= row.items.length; i++) {
+				total += row.items[0].realVote + row.items[0].offsetVote;
+			}
+// 			for(var i = 0; i < row.items.length; i++) {
+// 				for(var x in row.items){
+// 					var item = row.items[x];
+// 					if(i == item.sort) {
+// 						var rate = 0;
+// 						if(i == row.items.length) {
+// 							rate = left;
+// 						} else {
+// 							rate = total == 0 ? 0 : Math.floor((item.realVote + item.offsetVote) * 100 / total)
+// 							left -= rate;
+// 						}
+// 						items.push('<li data-rate="' + rate + '%">' + item.item + '（' + rate + '%）</li>');
+// 					}
+// 				}
+// 			}
+			row.items.sort(function(a,b){return a.sort>b.sort?1:-1});
+			for(var i = 0; i < row.items.length; i++) {
+				var rate = 0;
+				var item = row.items[i];
+				if(i == row.items.length-1) {
+					rate = left;
+				} else {
+					rate = total == 0 ? 0 : Math.floor((item.realVote + item.offsetVote) * 100 / total)
+					left -= rate;
+				}
+				items.push('<li data-rate="' + rate + '%"><b></b>' + item.item + '（' + rate + '%）</li>');
+			}
+			html = 	['<section class="vote after rate">',
+			       	 '	<h2>'+ row.title + '<span>(' + (row.multi?"多选":"单选") + ')</span></h2>',
+					 '	<ul>',
+					 items.join(''),
+					 '	</ul>',
+					 '	<button>投票已截止</button>',
+					 '</section><br/>'].join('')
+		} else {	//未截止 
+			row.items.sort(function(a,b){return a.sort>b.sort?1:-1});
+			for(var i = 0; i < row.items.length; i++) {
+				var item = row.items[i];
+				items.push('<li data-ans="' + item.id + '">' + item.item + '</li>');
+		}
+			html = ['<section class="vote voting ' + type + '" data-ques="' + row.id + '" issubmit="0">',
+			        '	<h2>' + row.title + '<span>(' + (row.multi?"多选":"单选") + ')</span></h2>',
+					'	<ul>',
+					items.join(''),
+					'	</ul>',
+					'	<button class="vote">投票</button>',
+					'</section><br/>'].join('');
+		}
+		
+// 		var html =['<p class="vote"><span id="vote-12">' + row.title + '</span><br />',
+// 		           items.join(''),
+// 		           '</p>'].join('');
+		return html;
+	}
+	</script>
+</head>
+<body>
+	
+	<table id="tt" style="width:98%;"></table>
+	
+</body>
+</html>

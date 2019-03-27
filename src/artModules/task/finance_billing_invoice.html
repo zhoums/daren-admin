@@ -1,0 +1,156 @@
+<style>
+#selectedTaskArray{
+	max-height: 100px;
+}
+.no-border-top {
+	border-top: none !important;
+}
+.del-item{
+	position: relative;
+	margin: 6px;
+}
+.del-item font {
+	display:inline-block;
+	width:18px;
+	height:18px;
+	position: absolute;
+	background-color:#ec5fff;
+	color:white;
+	top: -6px;
+	right: -6px;
+	border-radius:18px; 
+}
+.del-item font:hover {
+	background-color:red;
+}
+</style>
+<div class="modal fade" id="finance_billing_invoice_modal">
+	<div class="modal-dialog" style="width: 60%;">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h4 class="modal-title">
+					<center>批量开票</center>
+				</h4>
+			</div>
+			<div class="modal-body">
+				<form class="form-horizontal row-border" id="finance_billing_invoice_form">
+					<div class="form-group">
+						<label class="col-sm-3 control-label">总申请费用：</label>
+						<div class="col-md-6">
+							<input type="text" class="form-control" id="taskTotalAmt" readonly="readonly" value="{{taskTotalAmt}}" >
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-3 control-label">添加任务：</label>
+						<div class="col-md-6">
+							<select class="form-control" id="addTaskInput" style="width: 70%">
+							</select>
+							<button type="button" class="btn btn-primary bind bind-click" bind-method="addInvoiceTask">添加</button>
+						</div>
+					</div>
+					<fieldset>
+						<legend>已选任务</legend>
+						<div class="container-fluid">
+							<div class="row pre-scrollable" id="selectedTaskArray">
+								{{each taskIdArray as item}}
+								<a class="btn del-item" href="javascript:;" role="button" data-tid="{{item}}" >{{item}}
+									<font class="d-btn">X</font>
+								</a>
+								{{/each}}
+							</div>
+						</div>
+					</fieldset>
+					<fieldset>
+						<legend>开票信息</legend>
+						<div class="container-fluid">
+							<div class="row">
+								<label class="col-sm-3">开票抬头：</label>
+								<div class="col-md-6">{{invoiceTitleInfo.companyName}}</div>
+							</div>
+							<div class="row">
+								<label class="col-sm-3">纳税人识别号：</label>
+								<div class="col-md-6">{{invoiceTitleInfo.taxpayerId}}</div>
+							</div>
+							<div class="row">
+								<label class="col-sm-3">公司地址：</label>
+								<div class="col-md-6">{{invoiceTitleInfo.companyAddr}}</div>
+							</div>
+							<div class="row">
+								<label class="col-sm-3">公司电话：</label>
+								<div class="col-md-6">{{invoiceTitleInfo.companyPhone}}</div>
+							</div>
+							<div class="row">
+								<label class="col-sm-3">开户银行：</label>
+								<div class="col-md-6">{{invoiceTitleInfo.bankName}}</div>
+							</div>
+						</div>
+					</fieldset>
+					<div class="form-group no-border-top">
+						<label class="col-sm-3 control-label">发票号码：</label>
+						<div class="col-md-6">
+							<input type="text" name="invoiceNum" class="form-control" value="{{invoiceNum}}">
+						</div>
+					</div>
+					<div class="form-group no-border-top">
+						<label class="col-sm-3 control-label">发票金额：</label>
+						<div class="col-md-6">
+							<input type="text" name="invoiceAmt" class="form-control" value="{{taskTotalAmt}}" readonly="readonly" onkeyup="value=value.replace(/[^\d.]/g,'')">
+						</div>
+					</div>
+					<div class="form-group no-border-top">
+						<label class="col-sm-3 control-label">发票类型：</label>
+						<div class="col-md-6">
+							<label class="radio-inline"> 
+								<input type="radio" name="type" id="invoice_form_type" value="1" {{if type == 1}}checked="checked"{{/if}} ><font>电子发票</font>
+							</label> 
+							<label class="radio-inline"> 
+								<input type="radio" name="type" id="invoice_form_type" value="2" {{if type == 2}}checked="checked"{{/if}}><font>纸质发票</font>
+							</label> 
+						</div>
+					</div>
+					<div class="form-group no-border-top invoice_type_2" style="display: none;" >
+						<label class="col-sm-3 control-label">快递公司：</label>
+						<div class="col-md-6">
+							<input type="text" name="courierCompany" class="form-control" value="{{courierCompany}}">
+						</div>
+					</div>
+					<div class="form-group no-border-top invoice_type_2" style="display: none;" >
+						<label class="col-sm-3 control-label">快递单号：</label>
+						<div class="col-md-6">
+							<input type="text" name="waybillNumber" class="form-control" value="{{waybillNumber}}" onkeyup="value=value.replace(/[^\d.]/g,'')">
+						</div>
+					</div>
+					<input type="hidden" name="id" value="{{invoiceId}}" />
+				</form>
+				<div class="form-group invoice_type_1" style="border-top: none;display: none;" >
+					<form class="form-horizontal" id="invoiceFileForm" method="post" enctype="multipart/form-data">
+						<div class="form-group">
+							<label class="col-sm-3 control-label">上传附件: </label>
+							<div class="col-sm-5">
+								<input type="file" id="add_invoice_file" name="file" enctype="multipart/form-data">
+							</div>
+							<div class="col-sm-2">
+								<input type="button" class="btn bind bind-click" bind-method="submitInvoiceFile" value="提交">
+							</div>
+						</div>
+					</form>
+					<ul id="invoiceFileWrapper" class="imgWrapper">
+						{{each invoiceFile as file}}
+							{{if file.isImg == 1}}
+								<li><img src="{{file.url}}" f="{{file.url}}"><a href="javascript:;" class="deleteImg"> × </a></li>
+							{{/if}}
+							{{if file.isImg == 2}}
+								<li><img src="/img/filelogo.jpg" f="{{file.url}}" alt="{{file.url}}" title="{{file.url}}" /><a href="javascript:;" class="deleteImg"> × </a></li>
+							{{/if}}
+						{{/each}}
+					</ul>
+				</div>
+			</div>
+			<div class="modal-footer" style="margin-top: 0;">
+				<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+				<button type="button" class="btn btn-primary bind bind-click" validate-form="finance_billing_invoice_form" bind-method="submitFinanceInvoiceBatch" tag="{{tag}}">保存</button>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,2467 @@
+<!DOCTYPE html>
+<html>
+<!-- Mirrored from www.zi-han.net/theme/hplus/ by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 20 Jan 2016 14:16:41 GMT -->
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="Expires" content="0">
+	<meta http-equiv="Pragma" content="no-cache">
+	<meta http-equiv="Cache-control" content="no-cache">
+	<meta http-equiv="Cache" content="no-cache">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="Cache-Control" content="no-siteapp" />
+	<title>茉莉传媒-达人系统</title>
+	<link rel="shortcut icon" href="/img/favicon.ico">
+	<link href="/css/hplus.parent.css" rel="stylesheet">
+	<link href="/css/check-style.css" rel="stylesheet">
+	<link href="/css/plugins/select2.css" rel="stylesheet">
+	<link href="https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+	<style type="text/css">
+		.dropdown-menu {
+			left: -80px;
+		}
+
+		.navbar-fixed-top,
+		.navbar-static-top {
+			background: -webkit-linear-gradient(left, #ec5fff, #f5b0ff);
+			/* Safari 5.1 - 6.0 */
+			background: -o-linear-gradient(right, #ec5fff, #f5b0ff);
+			/* Opera 11.1 - 12.0 */
+			background: -moz-linear-gradient(right, #ec5fff, #f5b0ff);
+			/* Firefox 3.6 - 15 */
+			background: linear-gradient(to right, #ec5fff, #f5b0ff);
+			/* 标准的语法（必须放在最后） */
+			/*  background: #34a7c8; */
+		}
+
+		.moli_color {
+			background-color: #ec5fff;
+		}
+
+		fieldset {
+			padding: .35em .625em .75em;
+			margin: 0 2px;
+			border: 1px solid silver;
+			border-radius: 8px
+		}
+
+		legend {
+			padding: .5em;
+			border: 0;
+			width: auto;
+			margin-bottom: 10px
+		}
+
+		.target_progress {
+			width: 100%;
+			height: 18px;
+			border: 1px solid #ec5fff;
+			display: inline-block !important;
+		}
+
+		.current_progress {
+			height: 100%;
+			background-color: green;
+			color: black;
+			text-align: center;
+		}
+
+		.select2-drop {
+			z-index: 10050 !important;
+		}
+
+		.select2-search-choice-close {
+			margin-top: 0 !important;
+			right: 2px !important;
+			min-height: 10px;
+		}
+
+		.select2-search-choice-close:before {
+			color: black !important;
+		}
+
+		/*防止select2不会自动失去焦点*/
+		.select2-container {
+			z-index: 16000 !important;
+		}
+
+		.select2-drop-mask {
+			z-index: 15990 !important;
+		}
+
+		.select2-drop-active {
+			z-index: 15995 !important;
+		}
+
+		.fixed {
+			position: fixed;
+		}
+
+		.required_label {
+			color: red;
+			font-size: 18px;
+		}
+
+		.moli_tabs {
+			border: none;
+		}
+
+		.moli_tabs>li {
+			width: 302px;
+			height: 51px;
+		}
+
+		.moli_tabs>li>a {
+			background: url("/img/step-bg.png") 0px -0px no-repeat !important;
+			text-align: center;
+			height: 100%;
+			width: 100%;
+			color: #fff !important;
+			border: none !important;
+			padding: 0px !important;
+			line-height: 51px;
+			font-size: 20px;
+			font-family: "open sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+			border-radius: 0px;
+		}
+
+		.moli_tabs>li>a:hover {
+			background: url("/img/step-bg.png") 0px -172px no-repeat !important;
+		}
+
+		.moli_tabs .active>a {
+			background: url("/img/step-bg.png") 0px -82px no-repeat !important;
+		}
+
+		#regInfo_SettMethod_form .control-label {
+			padding: 0px;
+		}
+	</style>
+</head>
+<div class="modal fade" id="change_password" style="position: absolute;" data-backdrop="static">
+	<div class="modal-dialog" style="width: 60%;">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h4 class="modal-title">
+					<center>修改密码</center>
+				</h4>
+			</div>
+			<div class="modal-body">
+				<form class="form-horizontal row-border" id="change-password-form">
+					<div class="form-group" style="border-top: none;">
+						<label class="col-sm-3 control-label">旧密码: </label>
+						<div class="col-sm-6">
+							<input class="form-control required" type="password" name="oldPassword" id="oldPassword" style="width: 100%" />
+						</div>
+						</div>
+						<div class="form-group" style="border-top: none;">
+							<label class="col-sm-3 control-label">新密码: </label>
+							<div class="col-sm-6">
+								<input class="form-control required" type="password" name="newPassword" id="newPassword" style="width: 100%" />
+						</div>
+							</div>
+							<div class="form-group" style="border-top: none;">
+								<label class="col-sm-3 control-label">确认: </label>
+								<div class="col-sm-6">
+									<input class="form-control required" type="password" name="confirmPassword" id="confirmPassword" style="width: 100%" />
+						</div>
+								</div>
+								<div>
+									<div class="col-sm-3"></div>
+									<label id="lbError" style="font-color: red"></label>
+								</div>
+				</form>
+			</div>
+			<div class="modal-footer" style="margin-top: 0;">
+				<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+				<button type="button" class="btn btn-primary bind bind-click" onclick="submitChangePassword()">保存</button>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="modal fade" id="edit_profile" style="position: absolute;" data-backdrop="static">
+	<div class="modal-dialog" style="width: 60%;">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h4 class="modal-title">
+					<center>修改个人资料</center>
+				</h4>
+			</div>
+			<div class="modal-body">
+				<form class="form-horizontal row-border" id="edit-profile-form">
+					<div class="form-group" style="border-top: none;">
+						<label class="col-sm-3 control-label"><span class="required">*</span>姓名: </label>
+						<div class="col-sm-6">
+							<input class="form-control required" type="text" name="nick" id="nickname" style="width: 100%" />
+						</div>
+						</div>
+						<div class="form-group" style="border-top: none;">
+							<label class="col-sm-3 control-label"><span class="required">*</span>Email: </label>
+							<div class="col-sm-6">
+								<input class="form-control required email" type="text" name="email" id="email" style="width: 100%" />
+						</div>
+							</div>
+							<div>
+								<div class="col-sm-3"></div>
+								<label id="lbError" style="font-color: red"></label>
+							</div>
+				</form>
+			</div>
+			<div class="modal-footer" style="margin-top: 0;">
+				<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+				<button type="button" class="btn btn-primary bind bind-click" validate-form="edit-profile-form" onclick="submitEditProfile()">保存</button>
+			</div>
+		</div>
+	</div>
+</div>
+<body class="fixed-sidebar full-height-layout gray-bg" style="overflow: hidden">
+	<div style="position: absolute; top: 0; width: 100%; height: 60px; border-bottom: 1px solid #e7eaec !important;">
+		<div id="smartTip" style="position:fixed; right: 205px; z-index: 100000; display: none;padding:5px 10px; border:1px solid #d2d2d2; background: #ffaa55; color:#000;">
+
+		</div>
+		<div class="row border-bottom">
+			<nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+				<div class="navbar-header">
+					<img style="float: left; margin: 14px 5px 5px 40px;" onclick="location.reload()" src="/img/logo.jpg" width="140" height="40" /> <span
+						style="line-height: 20px; margin-top: 22px; float: left; font-size: 9px; color: #fff"></span> <a class="navbar-minimalize minimalize-styl-2 btn" href="#"><i
+						class="fa fa-bars"></i> </a>
+				</div>
+
+				<button type="button" id="smartSet" onclick="smartSetHandle(this)" style="display: none;" data-token="ddd" data-darenname="" data-darenid="" class="btn btn-info">智能回填</button>
+				<button type="button" id="rollBackData" onclick="rollBackDataHandle(this)" style="display: none;" data-token="ddd" data-darenname="" data-darenid="" class="btn btn-info">回填数据</button>
+				<ul class="nav navbar-top-links navbar-right">
+					<li class="hidden-xs"><a class="dropdown J_tabClose" data-toggle="dropdown"><i class="fa fa fa-user"></i><span id="account"> 个人中心</span> </a>
+						<ul role="menu" class="dropdown-menu dropdown-menu-right " style="min-width: 150px;">
+							<li class="J_tabCloseOther"><a onclick="showChangePassword()"><i class="fa fa fa-user-secret"></i> 修改密码</a></li>
+							<li class="J_tabCloseAll"><a onclick="showEditProfile()"><i class="fa fa fa-edit"></i>个人资料</a></li>
+							<li id="modify_principal_li" class="J_tabCloseAll"><a onclick="opendEditPrincipalInfoModal()"><i class="fa fa fa-edit"></i> 修改主体信息</a></li>
+						</ul>
+					</li>
+					<li class="hidden-xs"><a href="#" onClick="signOut();"><i class="fa fa fa-sign-out"></i> 退出</a></li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+	<div id="wrapper" style="box-sizing: border-box; padding-top: 60px;">
+		<!--左侧导航开始-->
+		<nav class="navbar-default navbar-static-side" role="navigation">
+			<div class="nav-close">
+				<i class="fa fa-times-circle"></i>
+			</div>
+			<div class="sidebar-collapse">
+				<ul class="nav" id="side-menu">
+				</ul>
+			</div>
+		</nav>
+		<!--左侧导航结束-->
+		<!--右侧部分开始-->
+		<div id="page-wrapper" class="gray-bg dashbard-1">
+			<div class="row content-tabs fixed">
+				<button class="roll-nav roll-left J_tabLeft">
+					<i class="fa fa-backward"></i>
+				</button>
+				<nav class="page-tabs J_menuTabs">
+					<div class="page-tabs-content">
+						<a href="javascript:;" class="active J_menuTab" data-id="/index.html">首页</a>
+					</div>
+				</nav>
+				<button class="roll-nav roll-right J_tabRight" style="right: 0px">
+					<i class="fa fa-forward"></i>
+				</button>
+				<!-- <div class="btn-group roll-nav roll-right">
+                    <button class="dropdown J_tabClose" data-toggle="dropdown">关闭操作<span class="caret"></span>
+                    </button>
+                    <ul role="menu" class="dropdown-menu dropdown-menu-right">
+                        <li class="J_tabCloseAll"><a>关闭全部选项卡</a>
+                        </li>
+                        <li class="J_tabCloseOther"><a>关闭其他选项卡</a>
+                        </li>
+                    </ul>
+                </div> -->
+			</div>
+			<div class="row J_mainContent" id="content-main" style="padding-top: 42px;height: calc(100% - 36px);">
+				<iframe class="J_iframe" name="iframe0" id="myiframe" width="100%" height="100%" src="home.html" frameborder="0" data-id="/index.html" seamless></iframe>
+				<div class="plug-step-win">
+					<div class="mask-layer"></div>
+					<div class="window-panel" style="top: 60px; overflow: hidden;">
+						<div class="title">
+							<h3></h3>
+						</div>
+						<a href="javascript:void(0)" onclick="mizhu_close();" class="close-btn" title="最小化">-</a>
+						<div class="body-panel">
+							<div id="install-guide" style="display: none; width: 100%; height: 510px; overflow: auto;">
+								<div class="step-guide-header">
+									<div class="step-current">
+										<span class="icon icon-arrow-down"> </span> 下载插件
+									</div>
+									<div class="">
+										<span class="icon icon-home"> </span>登录创作平台
+									</div>
+									<div class="">
+										<span class="icon icon-rocket"> </span>智能回填数据
+									</div>
+								</div>
+								<p style="text-align: center; font-size: 18px; margin-bottom: 0;">
+									第一步：<b>下载安装插件</b><br />chrome插件安装过程如下（请务必使用最新版chrome浏览器）
+								</p>
+									<div style="display: flex; width: 100%; justify-content: center;">
+										<div class="chrome-plug-install">
+											<img src="./img/chrome1.png">
+											<h4>1、下载安装文件</h4>
+											<p>
+												点击“<a href="#" id='download-plug' target="_blank">下载插件</a>"可对插件进行下载，可以在下载文件夹中找到下载的文件，后缀是 .zip 。下载后请进行解压，解压后，获得dist文件夹，以备后续使用。
+											</p>
+											<p>注：如果出现警告项，请选择保留，这是浏览器的默认设置，插件不会对你的计算机造成任何危害。</p>
+										</div>
+										<div class="chrome-plug-install">
+											<img src="./img/chrome2.png">
+											<h4>2、打开浏览器扩展安装页面</h4>
+											<p>你可以点击插件右上角选项卡，通过路径 更多工具－扩展程序 进入扩展安装页面。</p>
+											<p>或者可以在浏览器地址栏输入chrome://extensions，按回车键进入安装页面。</p>
+										</div>
+										<div class="chrome-plug-install">
+											<img src="./img/chrome3.png">
+											<h4>3、拖拽文件安装</h4>
+											<p>
+												将第一步解压的dist文件夹直接拖拽到“扩展安装”界面内即可安装。注意需要打开开发者模式，如右上图所示。<span style="color: red">(请使用最新版本的chrome浏览器，直接<a href="#" id='download-chrome' target="_blank">点这里</a>下载即可)
+											</span>
+											</p>
+										</div>
+									</div>
+									<div style="display: flex; justify-content: center; margin-top: -10px;">
+										<button id="fish-install" style="outline: none; background-color: #e000fe; border: none; padding: 10px 20px; border-radius: 5px; margin: 5px auto; color: #fff;">已完成插件安装</button>
+									</div>
+							</div>
+							<div id="install-alerdy" style="display: flex; flex-wrap: wrap;">
+								<div class="step-guide-header">
+									<div class="">
+										<span class="icon icon-arrow-down"> </span> 下载插件
+									</div>
+									<div id="step-login" class="">
+										<span class="icon icon-home"> </span>登录创作平台
+									</div>
+									<div id="step-data" class="">
+										<span class="icon icon-rocket"> </span>智能回填数据
+									</div>
+								</div>
+								<div id="s-step-tip-2" style="display: none; padding: 10px; width: 100%;">
+									<p style="text-align: center; width: 100%; font-size: 24px">
+										第二步：<b>登录创作平台</b><br />点击<a href="https://we.taobao.com/creator/login-intro?redirectURL=http%3A%2F%2Fwe.taobao.com%2F" target="_blank"
+											style="font-weight: bold; color: blue;"> 这里 </a>进行 登录[<span style="color:red;font-weight: bold;font-size: larger;" id="lbDarenName">达人名称</span>]授权
+									</p>
+									<div style="display: flex; justify-content: center">
+										<button id='suc-login-tb' style="outline: none; background-color: #e000fe; border: none; padding: 10px 20px; border-radius: 5px; margin: 10px auto 20px; color: #fff;">已完成账户登录</button>
+									</div>
+								</div>
+								<div id="s-step-tip-3" style="display: none; padding: 10px; font-size: 24px; width: 100%; text-align: center; margin-top: 30px; font-weight: bold;">正在智能回填数据，可先最小化此界面。几分钟后，再回来看结果吧。可以点击智能回填列表中的“刷新”按钮，查看智能回填任务的最新状况</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+				<div class="plug-reinstall-win">
+					<div class="mask-layer"></div>
+					<div class="window-panel" style="top: 60px; overflow: hidden;">
+						<div class="title">
+							<h3>请更新您的插件到最新版本</h3>
+						</div>
+						<a href="javascript:void(0)" onclick="reinstall_close();" class="close-btn" title="最小化">-</a>
+						<div class="body-panel">
+							<div style=" width: 100%; height: 510px; overflow: auto;">
+								<div class="step-guide-header">
+									<div class="step-current">
+										<span class="icon icon-arrow-down"> </span> 下载插件
+									</div>
+									<div class="">
+										<span class="icon icon-home"> </span>登录创作平台
+									</div>
+									<div class="">
+										<span class="icon icon-rocket"> </span>智能回填数据
+									</div>
+								</div>
+								<p style="text-align: center; font-size: 18px; margin-bottom: 0;">
+									第一步：<b>下载安装插件</b><br />chrome插件安装过程如下（请务必使用最新版chrome浏览器）
+								</p>
+									<div style="display: flex; width: 100%; justify-content: center;">
+										<div class="chrome-plug-install">
+											<img src="./img/chromeUp.jpeg">
+											<h4>1、卸载原来插件，重新下载最新插件</h4>
+											<p>
+												（1）删除插件：在chrome浏览器右键点击茉莉传媒插件，然后选择“从chrome中移除。。。”
+											</p>
+											<p>
+												（2）点击“<a href="#" id='reinstall-download-plug' target="_blank">下载插件</a>"可对插件进行下载，可以在下载文件夹中找到下载的文件，后缀是 .zip 。下载后请进行解压，解压后，获得dist文件夹，以备后续使用。
+											</p>
+											<p>注：如果出现警告项，请选择保留，这是浏览器的默认设置，插件不会对你的计算机造成任何危害。</p>
+										</div>
+										<div class="chrome-plug-install">
+											<img src="./img/chrome2.png">
+											<h4>2、打开浏览器扩展安装页面</h4>
+											<p>你可以点击插件右上角选项卡，通过路径 更多工具－扩展程序 进入扩展安装页面。</p>
+											<p>或者可以在浏览器地址栏输入chrome://extensions，按回车键进入安装页面。</p>
+										</div>
+										<div class="chrome-plug-install">
+											<img src="./img/chrome3.png">
+											<h4>3、拖拽文件安装</h4>
+											<p>
+												将第一步解压的dist文件夹直接拖拽到“扩展安装”界面内即可安装。注意需要打开开发者模式，如右上图所示。<span style="color: red">(请使用最新版本的chrome浏览器，直接<a href="#" id='reinstall-download-chrome' target="_blank">点这里</a>下载即可)
+											</span>
+											</p>
+										</div>
+									</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="footer"></div>
+		</div>
+	</div>
+
+	<!-- 完善主体资料  start-->
+	<div class="modal fade" id="perfect_principal_info_modal" data-backdrop="false">
+		<div class="modal-dialog" style="width: 80%;">
+			<div class="modal-content">
+				<div class="modal-header">
+					<!-- 					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button> -->
+					<h4 class="modal-title">完善信息</h4>
+				</div>
+				<div class="modal-body col-sm-12">
+					<div>
+						<!-- Nav tabs -->
+						<ul class="nav nav-tabs moli_tabs" role="tablist">
+							<li role="presentation" class="active"><a href="#perfect_info_tab" aria-controls="perfect_info_tab" role="tab" data-toggle="tab">完善信息</a></li>
+							<li role="presentation"><a href="#pending_review_tab" aria-controls="pending_review_tab" role="tab" data-toggle="tab">待审核</a></li>
+							<li role="presentation" style="display: none;"><a href="#audit_failure_tab" aria-controls="audit_failure_tab" role="tab" data-toggle="tab">审核失败</a></li>
+							<li role="presentation"><a href="#more_info_tab" aria-controls="more_info_tab" role="tab" data-toggle="tab">增加更多达人和渠道报价</a></li>
+						</ul>
+						<!-- Tab panes -->
+						<div class="tab-content">
+							<div role="tabpanel" class="tab-pane active" id="perfect_info_tab">
+								<!-- 完善信息 -->
+								<br>
+								<div class="row" id="perfect_info_fieldset"></div>
+								<div class="row" style="display: block; position: relative;">
+									<div class="row" style="position: absolute; right: 20px; bottom: -64px; z-index: 1;">
+										<button type="button" class="btn btn-default moli_color audit_submit_btn" >提交审核</button>
+									</div>
+								</div>
+							</div>
+							<div role="tabpanel" class="tab-pane" id="pending_review_tab">
+								<!-- 待审核-->
+							</div>
+							<div role="tabpanel" class="tab-pane" id="audit_failure_tab">
+								<!-- 审核失败 -->
+								<div class="row" id="audit_failure_tab_body"></div>
+								<div class="row" style="display: block; position: relative;">
+									<div class="row" style="position: absolute; right: 20px; bottom: -64px; z-index: 1;">
+										<button type="button" class="btn btn-default moli_color audit_submit_btn" >重新提交审核</button>
+									</div>
+								</div>
+							</div>
+							<div role="tabpanel" class="tab-pane" id="more_info_tab" style="position: relative;">
+								<div class="row" id="more_info_tab_body">
+									<!-- 审核通过 -->
+								</div>
+								<div class="row" style="position: absolute; right: 0px; bottom: -64px; z-index: 1;">
+									<label class="checkbox-inline"> <input type="checkbox" id="unshow_tip" style="margin-top: 3px; margin-left: -15px;"> <a>不再显示</a>
+									</label>
+									<button type="button" class="btn btn-default moli_color" id="close_perfect_principal_info_modal_btn">关闭</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<div class="row">
+						<div class="col-md-9 col-md-offset-3">
+							<div style="height: 34px;"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- 完善主体资料  end-->
+
+	<!-- 主体详情-修改 start-->
+	<div class="modal fade" id="media_reg_info_modal" data-backdrop="false" style="max-height: 100%;overflow-y: scroll;">
+		<div class="modal-dialog" style="width: 60%;">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h4 class="modal-title">达人主体信息</h4>
+				</div>
+				<div class="modal-body col-sm-12">
+					<div>
+						<!-- Nav tabs -->
+						<ul class="nav nav-tabs" role="tablist">
+							<li role="presentation" class="active"><a href="#regInfo_basic" aria-controls="regInfo_basic" role="tab" data-toggle="tab">基本信息</a></li>
+							<li role="presentation"><a href="#regInfo_contactMethod" aria-controls="regInfo_contactMethod" role="tab" data-toggle="tab">联系方式</a></li>
+							<li role="presentation"><a href="#regInfo_SettMethod" aria-controls="regInfo_SettMethod" role="tab" data-toggle="tab">付款方式</a></li>
+						</ul>
+						<!-- Tab panes -->
+						<div class="tab-content" id="principal_info_tabcontent"></div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<div class="row">
+						<div class="col-md-12" style="text-align: center;">
+							<a data-toggle="collapse" href="#collapsePrincipalChangeLogs" >修改历史</a>
+						</div>
+						<div class="col-md-12">
+							<div class="collapse" id="collapsePrincipalChangeLogs">
+								<div class="row pre-scrollable" style="max-height: 300px;" id="collapsePrincipalChangeLogsContent">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- 主体详情-修改 end-->
+
+	<!-- 修改达人页面 -->
+	<div class="modal fade" id="modify_daren_info_modal">
+		<div class="modal-dialog" style="width: 60%;">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h4 class="modal-title">修改达人信息</h4>
+				</div>
+				<div class="modal-body col-sm-12" id="modify_daren_info_modal_body"></div>
+				<div class="modal-footer" style="margin-top: 0;">
+					<button type="button" class="btn btn-primary bind bind-click moli_color" validate-form="modify_daren_info_form" bind-method="submitModifyDrInfo">保存</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- 修改达人页面 -->
+
+	<!-- 新增达人 Start-->
+	<div class="modal fade" id="add_daren_info_modal" data-backdrop="false">
+		<div class="modal-dialog" style="width: 60%;">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h4 class="modal-title">新增达人信息</h4>
+				</div>
+				<div class="modal-body col-sm-12">
+					<form class="form-horizontal" id="add_daren_info_form">
+						<div class="form-group">
+
+							<div class="form-group" style="border-top: none;">
+								<label class="col-sm-3 control-label"> <label class="required_label">*</label> 平台:
+								</label>
+								<div class="col-md-6">
+									<select class="form-control required" name="platform" id="add_daren_info_platform" style="width: 100%">
+									</select>
+								</div>
+							</div>
+
+							<div class="form-group" style="border-top: none;">
+								<label class="col-sm-3 control-label"> <label class="required_label">*</label> 昵称
+								</label>
+								<div class="col-md-6">
+									<input type="text" class="form-control required" id="nickName" name="nickname">
+								</div>
+								</div>
+								<!--
+							<div class="form-group" style="border-top:none;">
+		                        <label class="col-sm-3 control-label"> <span class="required">*</span> 专注领域 </label>
+		                        <div class="col-sm-6">
+		                           <select class="form-control required" name="domain" id="add_domain" style="width:100%" > </select>
+		                           <div style="display:none; color:red; font-size:12pt" id="divPoolDrenDomain">
+
+		                           </div>
+		                        </div>
+		                    </div>
+							 -->
+								<div class="form-group article_url_group" style="border-top: none;">
+									<label class="col-sm-3 control-label"> <label class="required_label">*</label> 已发布文章链接
+									</label>
+									<div class="col-md-6">
+										<select class="form-control required" id="add_daren_info_resourceType" name="resourceType" style="width: 100%">
+										<option value="0" selected>请选择</option>
+										<option value="10" selected>微淘</option>
+									</select>
+
+									</div>
+								</div>
+								<div class="form-group article_url_group" style="border-top: none;">
+									<label class="col-sm-3 control-label"> </label>
+									<div class="col-md-9">
+										<input type="text" class="form-control required" id=articleUrl name="articleUrl">
+										<font color="red">为了验证您的达人账号信息的有效性，请填写一篇已发布的文章链接，感谢配合</font> <br>
+										<font style="display: block;">连接格式参考以下内容：</font>
+										<font style="display: block;"><a target="_blank"
+										href="https://market.m.taobao.com/apps/market/content/index.html?contentId=200505738511">https://market.m.taobao.com/apps/market/content/index.html?contentId=200505738511</a></font>
+									</div>
+								</div>
+							</div>
+					</form>
+				</div>
+				<div class="modal-footer" style="margin-top: 0;">
+					<button type="button" class="btn btn-primary moli_color" validate-form="add_daren_info_form" bind-method="submitDarenInfo">保存</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- 新增达人 end-->
+
+	<!-- 新增达人渠道 start -->
+	<div class="modal fade " id="modify_daren_resource_modal" data-backdrop="false">
+		<div class="modal-dialog" style="width: 90%;">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h4 class="modal-title">达人渠道管理</h4>
+				</div>
+				<div class="modal-body col-md-12" id="modify_daren_resource_modal_body"></div>
+				<div class="modal-footer" style="margin-top: 0;"></div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal fade" style="position:absolute;"  data-backdrop="static" id="div_update_info">
+		<div class="modal-dialog" style="width:550px;">
+	        <div class="modal-content">
+	            <div class="modal-header">
+	                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+	                    &times;
+	                </button>
+	                <h4 class="modal-title">
+	            <center>升级公告</center>
+	        </h4>
+	            </div>
+	            <div class="modal-body" style="font-size: 15px;">
+			                尊敬的合作伙伴：<br><br>
+					<p style="text-align: left;text-indent: 2em;">
+					您好，为了给您带来更好的体验，茉莉传媒于2019年3月14日21时至次日8时进行系统升级。在此期间，您将暂时无法使用茉莉传媒的系统。给大家带来的不便，敬请谅解！</p><br>
+					<p style="text-align: right;">茉莉传媒产品团队<br>2019年3月12日</p>
+	            </div>
+	            <div class="modal-footer" style="margin-top:0;">
+	                <button type="button" class="btn btn-default" data-dismiss="modal">
+	                    关闭
+	                </button>
+	                <button type="button" class="btn btn-primary bind bind-click" onclick="notShow()">
+	                    不再显示
+	                </button>
+	            </div>
+	        </div>
+	    </div>	
+	</div>
+
+	<script id="modify_daren_resource_modal_temp" type="text/html">
+		<div class="row">
+		<div class="form-group">
+			<div class="col-md-2">
+				<p class="text-right">
+					<strong>平台</strong>
+				</p>
+			</div>
+			<div class="col-md-10">
+				<p>{{platformStr}}</p>
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="col-md-2">
+				<p class="text-right">
+					<strong>昵称</strong>
+				</p>
+			</div>
+			<div class="col-md-10">
+				<p>{{nickname}}</p>
+			</div>
+		</div>
+		{{if articleChannelStr}}
+		<div class="form-group">
+			<div class="col-md-2">
+				<p class="text-right">
+					<strong>{{articleChannelStr}}-文章链接</strong>
+				</p>
+			</div>
+			<div class="col-md-10">
+				<p>{{articleUrl}}</p>
+			</div>
+		</div>
+		{{/if}}
+	</div>
+	<div class="row">
+		<div class="form-group" style="border-top: none;">
+			<table id="tb-dr-media-list" class="table table-striped table-bordered table-hover table-highlight-head table-responsive">
+				<thead>
+					<tr>
+						<th>达人名称</th>
+						<th width="180px">渠道</th>
+						<th>标准报价（元）</th>
+						<th>执行价（元）</th>
+						<th>报价备注</th>
+						<th width="80px">操作</th>
+					</tr>
+				</thead>
+				<tbody id="detail-tbody-dr-media-list">
+				</tbody>
+			</table>
+		</div>
+		<div class="form-actions fluid">
+			<div class="row">
+				<div class="col-sm-12 text-center">
+					<button type="button" class="btn btn-lg btn-info moli_color addDrenResourceNewLineBtn" drId="{{id}}" drName="{{nickname}}">添加更多渠道</button>
+					<button type="button" class="btn btn-lg btn-info moli_color batchEditDrenResourceBtn" drId="{{id}}">提交</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	</script>
+
+	<script id="add_dren_resource_batch_tpl" type="text/html">
+		<tr id="dren_resource_REPLACE_LINENO" lineNo="REPLACE_LINENO" rid="0" >
+		<td>REPLACE_DREN_NAME</td>
+		<td ><select class="form-control required" name="resourceType_REPLACE_LINENO" id="ipt_resource_type_REPLACE_LINENO" style="width:90%"></select></td>
+		<td ><input type="text" onkeyup="value=value.replace(/[^\d.]/g,'')" id="ipt_price_REPLACE_LINENO" name="price_REPLACE_LINENO" class="form-control required" /></td>
+		<td ><input type="text" onkeyup="value=value.replace(/[^\d.]/g,'')" id="ipt_discount_price_REPLACE_LINENO" name="discountPrice_REPLACE_LINENO" class="form-control required" /></td>
+		<td ><input type="text" id="ipt_price_remark_REPLACE_LINENO" name="priceRemark_REPLACE_LINENO" class="form-control" /></td>
+		<td ><a  class="delDrenResourceLineBtn" line_no="REPLACE_LINENO">删除</a></td>
+	</tr>
+	</script>
+
+	<script id="daren_resource_item_tmpl" type="text/html">
+		<tr id="dren_resource_{{id}}" rid="{{id}}">
+	    <td key="nickname" value="{{nickname}}">{{nickname}}</td>
+	    <td key="resourceType" value="{{resourceType}}" id="ipt_resource_type_{{id}}">{{resourceTypeStr}}</td>
+	    <td key="price" value="{{price}}" id="price_{{id}}">
+	    	<input type="text" name="price" id="ipt_price_{{id}}" value="{{price}}" class="form-control" onkeyup="value=value.replace(/[^\d.]/g,'')" />
+	    </td>
+	    <td key="discountPrice" value="{{discountPrice}}" id="discountPrice_{{id}}">
+	    	<input type="text" name="discountPrice" id="ipt_discount_price_{{id}}" value="{{discountPrice}}" class="form-control" onkeyup="value=value.replace(/[^\d.]/g,'')" />
+	    </td>
+	    <td key="priceRemark" value="{{priceRemark}}" id="priceRemark_{{id}}">
+	    	<input class="form-control" type="text" id="ipt_price_remark_{{id}}" name="priceRemark" value="{{priceRemark}}" placeholder="报价备注" />
+	    </td>
+	    <td key="op">
+	    	<a href="javascript:;" class="deleteDrenResource_a" id="{{id}}" >删除</a>
+	    </td>
+	</tr>
+	</script>
+
+
+	<!-- 新增达人渠道 end -->
+
+	<!-- 主体完善模板 start -->
+	<script type="text/html" id="perfect_principal_info_temp">
+		<fieldset><legend>1.完善信息</legend>
+		<div class="col-md-1">&nbsp;</div>
+		<div class="col-md-4">
+			<div class="row"><label>主体信息</label></div>
+			<div class="row" style="margin-top: -25px;"><hr></div>
+			<div class="row">
+				<div class="col-md-5">
+					主体基础信息
+				</div>
+				{{if basicPrincipalInfo.isPerfect == 1}}
+				<div class="col-md-3" style="color:green;">
+					已完善
+				</div>
+				{{/if}}
+				{{if basicPrincipalInfo.isPerfect == 2}}
+				<div class="col-md-3" style="color:red;">
+					未完善
+				</div>
+				{{/if}}
+				<div class="col-md-4">
+					{{if basicPrincipalInfo.isPerfect == 1}}
+						<a href="javascript:;" data-tab="regInfo_basic" class="opendPrincipalInfoModal">查看信息</a>
+					{{/if}}
+					{{if basicPrincipalInfo.isPerfect == 2}}
+						<a href="javascript:;" data-tab="regInfo_basic" class="opendPrincipalInfoModal">完善信息</a>
+					{{/if}}
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-5">
+					主体联系人信息
+				</div>
+				{{if contactInfo.isPerfect == 1}}
+				<div class="col-md-3" style="color:green;">
+					已完善
+				</div>
+				{{/if}}
+				{{if contactInfo.isPerfect == 2}}
+				<div class="col-md-3" style="color:red;">
+					未完善
+				</div>
+				{{/if}}
+				<div class="col-md-4">
+					{{if contactInfo.isPerfect == 1}}
+						<a href="javascript:;" data-tab="regInfo_contactMethod" class="opendPrincipalInfoModal">查看信息</a>
+					{{/if}}
+					{{if contactInfo.isPerfect == 2}}
+						<a href="javascript:;" data-tab="regInfo_contactMethod" class="opendPrincipalInfoModal">完善信息</a>
+					{{/if}}
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-5">
+					主体付款信息
+				</div>
+				{{if paymentInfo.isPerfect == 1}}
+				<div class="col-md-3" style="color:green;">
+					已完善
+				</div>
+				{{/if}}
+				{{if paymentInfo.isPerfect == 2}}
+				<div class="col-md-3" style="color:red;">
+					未完善
+				</div>
+				{{/if}}
+				<div class="col-md-4">
+					{{if paymentInfo.isPerfect == 1}}
+						<a href="javascript:;" data-tab="regInfo_SettMethod" class="opendPrincipalInfoModal">查看信息</a>
+					{{/if}}
+					{{if paymentInfo.isPerfect == 2}}
+						<a href="javascript:;" data-tab="regInfo_SettMethod" class="opendPrincipalInfoModal">完善信息</a>
+					{{/if}}
+				</div>
+			</div>
+		</div>
+		<div class="col-md-1">&nbsp;</div>
+		<div class="col-md-5">
+			<div class="row"><label>达人信息</label></div>
+			<div class="row" style="margin-top: -25px;"><hr></div>
+			<div class="row">
+				<div class="col-md-4">
+					达人基础信息
+				</div>
+				{{if drenInfo.isPerfect == 1}}
+				<div class="col-md-3" style="color:green;">
+					已完善
+				</div>
+				{{/if}}
+				{{if drenInfo.isPerfect == 2}}
+				<div class="col-md-3" style="color:red;">
+					未完善
+				</div>
+				{{/if}}
+				<div class="col-md-5">
+					{{if drenInfo.isPerfect == 1}}
+						<div class="dropdown">
+							<a id="daren_dropdown" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+							查看信息<span class="caret"></span>
+							</a>
+							<ul class="dropdown-menu" aria-labelledby="daren_dropdown">
+								{{each darens item i}}
+								<li><a class="openModifyDarenInfoModalBtn" data-drid="{{item.id}}" href="#" >{{item.nickname}}</a></li>
+								{{/each}}
+							</ul>
+						</div>
+					{{/if}}
+					{{if drenInfo.isPerfect == 2}}
+						<a href="javascript:;" class="opendAddDarenModal">完善信息</a>
+					{{/if}}
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-4">
+					达人渠道信息
+				</div>
+				{{if drenResInfo.isPerfect == 1}}
+				<div class="col-md-3" style="color:green;">
+					已完善
+				</div>
+				{{/if}}
+				{{if drenResInfo.isPerfect == 2}}
+				<div class="col-md-3" style="color:red;">
+					未完善
+				</div>
+				{{/if}}
+				<div class="col-md-5">
+					{{if drenResInfo.isPerfect == 1}}
+						<div class="dropdown">
+							<a id="daren_dropdown" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+							查看信息<span class="caret"></span>
+							</a>
+							<ul class="dropdown-menu" aria-labelledby="daren_dropdown">
+								{{each darens item i}}
+								<li><a class="openDarenResourceManagerBtn" data-drid="{{item.id}}" href="#" >{{item.nickname}}</a></li>
+								{{/each}}
+							</ul>
+						</div>
+					{{/if}}
+					{{if drenResInfo.isPerfect == 2}}
+						<div class="dropdown">
+							<a id="daren_dropdown" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+							选择达人，完善信息<span class="caret"></span>
+							</a>
+							<ul class="dropdown-menu" aria-labelledby="daren_dropdown">
+								{{each darens item i}}
+								<li><a class="openDarenResourceManagerBtn" data-drid="{{item.id}}" href="#" >{{item.nickname}}</a></li>
+								{{/each}}
+							</ul>
+						</div>
+					{{/if}}
+				</div>
+			</div>
+		</div>
+	</fieldset>
+	</script>
+
+	<script type="text/html" id="audit_failure_tab_fieldset_temp">
+		<fieldset>
+		<legend>2.审核失败</legend>
+		<div class="col-md-1"></div>
+		<div class="col-md-11">
+			<div class="col-md-12">
+				<label>您的账号审核失败，具体原因如下：</label>
+			</div>
+			<div class="col-md-12" style="margin-top: -20px;">
+				<hr>
+			</div>
+			<div class="col-md-12">
+				<div class="col-md-11" id="audit_failure_msg">{{principalInfo.auditRemark}}</div>
+			</div>
+			<br>
+			<div class="col-md-12">
+				<div class="col-md-11">
+					<br>
+					<label id="moliContactEmail">如有疑问，可联系&nbsp;{{moliContactEmail}}</label>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-12">
+		<br>
+		<br>
+		</div>
+		<div class="col-md-12">
+			<div class="col-md-1">&nbsp;</div>
+			<div class="col-md-4">
+				<div class="row">
+					<label>主体信息</label>
+				</div>
+				<div class="row" style="margin-top: -25px;">
+					<hr>
+				</div>
+				<div class="row">
+					<div class="col-md-5">主体基础信息</div>
+					{{if basicPrincipalInfo.isPerfect == 1}}
+					<div class="col-md-3" style="color: green;">已完善</div>
+					{{/if}} {{if basicPrincipalInfo.isPerfect == 2}}
+					<div class="col-md-3" style="color: red;">未完善</div>
+					{{/if}}
+					<div class="col-md-4">
+						{{if basicPrincipalInfo.isPerfect == 1}} <a href="javascript:;" data-tab="regInfo_basic" class="opendPrincipalInfoModal">查看信息</a> {{/if}} {{if basicPrincipalInfo.isPerfect ==
+						2}} <a href="javascript:;" data-tab="regInfo_basic" class="opendPrincipalInfoModal">完善信息</a> {{/if}}
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-5">主体联系人信息</div>
+					{{if contactInfo.isPerfect == 1}}
+					<div class="col-md-3" style="color: green;">已完善</div>
+					{{/if}} {{if contactInfo.isPerfect == 2}}
+					<div class="col-md-3" style="color: red;">未完善</div>
+					{{/if}}
+					<div class="col-md-4">
+						{{if contactInfo.isPerfect == 1}} <a href="javascript:;" data-tab="regInfo_contactMethod" class="opendPrincipalInfoModal">查看信息</a> {{/if}} {{if contactInfo.isPerfect == 2}} <a
+							href="javascript:;" data-tab="regInfo_contactMethod" class="opendPrincipalInfoModal">完善信息</a> {{/if}}
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-5">主体付款信息</div>
+					{{if paymentInfo.isPerfect == 1}}
+					<div class="col-md-3" style="color: green;">已完善</div>
+					{{/if}} {{if paymentInfo.isPerfect == 2}}
+					<div class="col-md-3" style="color: red;">未完善</div>
+					{{/if}}
+					<div class="col-md-4">
+						{{if paymentInfo.isPerfect == 1}} <a href="javascript:;" data-tab="regInfo_SettMethod" class="opendPrincipalInfoModal">查看信息</a> {{/if}} {{if paymentInfo.isPerfect == 2}} <a
+							href="javascript:;" data-tab="regInfo_SettMethod" class="opendPrincipalInfoModal">完善信息</a> {{/if}}
+					</div>
+				</div>
+			</div>
+			<div class="col-md-1">&nbsp;</div>
+			<div class="col-md-5">
+				<div class="row">
+					<label>达人信息</label>
+				</div>
+				<div class="row" style="margin-top: -25px;">
+					<hr>
+				</div>
+				<div class="row">
+					<div class="col-md-4">达人基础信息</div>
+					{{if drenInfo.isPerfect == 1}}
+					<div class="col-md-3" style="color: green;">已完善</div>
+					{{/if}} {{if drenInfo.isPerfect == 2}}
+					<div class="col-md-3" style="color: red;">未完善</div>
+					{{/if}}
+					<div class="col-md-5">
+						{{if drenInfo.isPerfect == 1}}
+						<div class="dropdown">
+							<a id="daren_dropdown" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> 查看信息<span class="caret"></span>
+							</a>
+							<ul class="dropdown-menu" aria-labelledby="daren_dropdown">
+								{{each darens item i}}
+								<li><a class="openModifyDarenInfoModalBtn" data-drid="{{item.id}}" href="#">{{item.nickname}}</a></li> {{/each}}
+							</ul>
+						</div>
+						{{/if}} {{if drenInfo.isPerfect == 2}} <a href="javascript:;" class="opendAddDarenModal">完善信息</a> {{/if}}
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-4">达人渠道信息</div>
+					{{if drenResInfo.isPerfect == 1}}
+					<div class="col-md-3" style="color: green;">已完善</div>
+					{{/if}} {{if drenResInfo.isPerfect == 2}}
+					<div class="col-md-3" style="color: red;">未完善</div>
+					{{/if}}
+					<div class="col-md-5">
+						{{if drenResInfo.isPerfect == 1}}
+						<div class="dropdown">
+							<a id="daren_dropdown" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> 查看信息<span class="caret"></span>
+							</a>
+							<ul class="dropdown-menu" aria-labelledby="daren_dropdown">
+								{{each darens item i}}
+								<li><a class="openDarenResourceManagerBtn" data-drid="{{item.id}}" href="#">{{item.nickname}}</a></li> {{/each}}
+							</ul>
+						</div>
+						{{/if}} {{if drenResInfo.isPerfect == 2}}
+						<div class="dropdown">
+							<a id="daren_dropdown" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> 选择达人，完善信息<span class="caret"></span>
+							</a>
+							<ul class="dropdown-menu" aria-labelledby="daren_dropdown">
+								{{each darens item i}}
+								<li><a class="openDarenResourceManagerBtn" data-drid="{{item.id}}" href="#">{{item.nickname}}</a></li> {{/each}}
+							</ul>
+						</div>
+						{{/if}}
+					</div>
+				</div>
+			</div>
+		</div>
+	</fieldset>
+	</script>
+
+	<script type="text/html" id="pending_review_tab_fieldset_temp">
+		<fieldset><legend>2.待审核</legend>
+		<div class="col-md-12">
+			<p class="text-success">{{principalInfo.principalName}}，您于&nbsp;{{principalInfo.auditSubTime}}&nbsp;完善信息并提交审核。预计<label style="color: red;">3个工作日内</label>，平台将对您的资料进行审核。</p>
+			<div class="row"><label style="display: inline-block!important;">完善您的资料，更有机会获得更多优质的达人任务，目前资料完成度</label>
+				<div class="target_progress" style="width:100px;">
+					<div class="current_progress" style="width:{{totalProgress}}%;">{{totalProgress}}%</div>
+				</div>
+			</div>
+			<div class="row" style="margin-top: -25px;"><hr></div>
+			<div class="row">
+				<div class="col-md-4"></div>
+				<div class="col-md-4">
+					<div class="row">
+						<div class="col-md-3">
+							主体信息
+						</div>
+						<div class="col-md-3" style="color:green;">
+							<div class="target_progress">
+								<div class="current_progress" style="width:{{principalTotalProgress}}%;">{{principalTotalProgress}}%</div>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<!-- <a href="javascript:;" data-toggle="modal" class="opendPrincipalInfoModal" >完善主体信息</a> -->
+						</div>
+					</div>
+					<br>
+					<div class="row">
+						<div class="col-md-3">
+							达人信息
+						</div>
+						<div class="col-md-3" style="color:green;">
+							<div class="target_progress">
+								<div class="current_progress" style="width:{{darenTotalProgress}}%;">{{darenTotalProgress}}%</div>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<!-- <a href="javascript:;" class="opendAddDarenModal">添加更多的达人信息</a> -->
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4"></div>
+			</div>
+		</div>
+	</fieldset>
+	<div class="row"
+		style="position: absolute; right: 45px; bottom: -34px; z-index: 1;">
+		<button type="button" class="btn btn-default moli_color"
+			id="close_perfect_principal_info_modal_btn_false">关闭</button>
+	</div>
+	</script>
+
+
+
+	<script type="text/html" id="more_info_tab_fieldset_temp">
+		<fieldset><legend>3.增加更多达人和渠道报价</legend>
+		<div class="col-md-1"></div>
+		<div class="col-md-10">
+			<div class="row">
+				<label style="display: inline-block!important;">点击以下达人的名字，为选择的达人添加更多的渠道</label>
+			</div>
+			<div class="row" style="margin-top: -25px;"><hr></div>
+			<div class="row">
+				{{each darens item i}}
+				<button type="button" class="btn btn-default btn-xs moli_color openDarenResourceManagerBtn" title="单击为该达人添加渠道" data-drid="{{item.id}}" >{{item.nickname}}</button>
+				{{/each}}
+			</div>
+			<br><br><br>
+			<div class="row">
+				<label style="display: inline-block!important;">完善您的资料，更有机会获得更多优质的达人任务，目前资料完成度</label>
+				<div class="target_progress" style="width:100px;">
+					<div class="current_progress" style="width:{{totalProgress}}%;">{{totalProgress}}%</div>
+				</div>
+			</div>
+			<div class="row" style="margin-top: -25px;"><hr></div>
+			<div class="row">
+				<div class="col-md-3"></div>
+				<div class="col-md-6">
+					<div class="row">
+						<div class="col-md-3">
+							主体信息
+						</div>
+						<div class="col-md-3" style="color:green;">
+							<div class="target_progress">
+								<div class="current_progress" style="width:{{principalTotalProgress}}%;">{{principalTotalProgress}}%</div>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<a href="javascript:;" data-toggle="modal" class="opendPrincipalInfoModal" >完善主体信息</a>
+						</div>
+					</div>
+					<br>
+					<div class="row">
+						<div class="col-md-3">
+							达人信息
+						</div>
+						<div class="col-md-3" style="color:green;">
+							<div class="target_progress">
+								<div class="current_progress" style="width:{{darenTotalProgress}}%;">{{darenTotalProgress}}%</div>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<a href="javascript:;" class="opendAddDarenModal">添加更多的达人信息</a>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-3"></div>
+			</div>
+		</div>
+	</fieldset>
+	</script>
+	<!-- 主体完善模板 end -->
+	<script type="text/html" id="principal_change_logs">
+		<table class="table">
+		<thead>
+			<tr>
+				<th>操作时间</th>
+				<th>操作人员</th>
+				<th>内容</th>
+			</tr>
+		</thead>
+		<tbody>
+			{{each result item i}}
+			<tr align="left">
+				<td>{{item.logTime}}</td>
+				<td>{{item.operator}}</td>
+				<td>{{#item.logContentStr}}</td>
+			</tr>
+			{{/each}}
+		</tbody>
+	</table>
+	</script>
+	<!-- 主体详情-修改 模板 start-->
+	<script type="text/html" id="principal_inf_edit_temp">
+		<div role="tabpanel" class="tab-pane active" id="regInfo_basic">
+	<!-- 基本信息 -->
+		<br>
+		<form class="form-horizontal" id="regInfo_basic_form">
+			<input type="hidden" name="id" value="{{id}}" />
+			<input type="hidden" name="principalId" value="{{principalId}}" />
+			<div class="form-group">
+				<label for="mediaType" class="col-sm-3 control-label">账号类型</label>
+				<div class="col-sm-8">
+					<label class="radio-inline">
+						<input type="radio" name="mediaType" value="1" {{if mediaType == 1}}checked="checked"{{/if}}>
+						个人
+					</label>
+					<label class="radio-inline">
+						<input type="radio" name="mediaType" value="2" {{if mediaType == 2}}checked="checked"{{/if}}>
+						公司/工作室
+					</label>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="principalName" class="col-sm-3 control-label"><label class="required_label">*</label>
+				{{if mediaType == 1}}
+				负责人名字
+				{{/if}}
+				{{if mediaType == 2}}
+				公司/工作室名称
+				{{/if}}
+				</label>
+				<div class="col-sm-8">
+					<input type="text" class="form-control" id="principalName" name="principalName" value="{{principalName}}">
+				</div>
+			</div>
+			<div class="form-group" {{if mediaType == 1}}style="display:none;"{{/if}} >
+				<label for="principalDescription" class="col-sm-3 control-label">公司/工作室简介</label>
+				<div class="col-sm-8">
+					<textarea class="form-control" rows="3" id="principalDescription" name="principalDescription"> {{principalDescription}}</textarea>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-offset-11 col-sm-10">
+					<button type="button" class="btn btn-default moli_color" validate-form="regInfo_basic_form" bind-method="submitMediaRegInfo" data-rtype="1">保存</button>
+				</div>
+			</div>
+		</form>
+	</div>
+	<div role="tabpanel" class="tab-pane" id="regInfo_contactMethod">
+		<!-- 联系方式 -->
+		<br />
+		<form class="form-inline" id="regInfo_contractMethod_form">
+			<input type="hidden" name="id" value="{{id}}" />
+			<input type="hidden" name="principalId" value="{{principalId}}" />
+			<div class="form-group col-sm-6">
+				<label for=""><label class="required_label">*</label> 业务联系人</label>
+				<input type="text" class="form-control" id="contacts" name="contacts" style="width: 100%;" value="{{contacts}}">
+			</div>
+			<div class="form-group col-sm-6">
+				<label for=""><label class="required_label">*</label> 联系电话</label>
+				<input type="text" class="form-control" id="contactPhone" name="contactPhone" style="width: 100%;" value="{{contactPhone}}">
+			</div>
+			<div class="form-group col-sm-6">
+				<label for=""><label class="required_label">&nbsp;</label>职位</label>
+				<input type="text" class="form-control" id="contactTitle" name="contactTitle" style="width: 100%;" value="{{contactTitle}}">
+			</div>
+
+			<div class="form-group col-sm-6">
+				<label for=""><label class="required_label">&nbsp;</label>微信号</label>
+				<input type="text" class="form-control" id="contactWechat" name="contactWechat" style="width: 100%;" value="{{contactWechat}}">
+			</div>
+			<div class="form-group col-sm-6">
+				<label for=""><label class="required_label">&nbsp;</label>QQ号</label>
+				<input type="text" class="form-control" id="contactQq" name="contactQq" style="width: 100%;" value="{{contactQq}}">
+			</div>
+			<div class="form-group col-sm-6">
+				<label for=""><label class="required_label">&nbsp;</label>旺旺号</label>
+				<input type="text" class="form-control" id="contactWangwang" name="contactWangwang" style="width: 100%;" value="{{contactWangwang}}">
+			</div>
+			<div class="form-group col-sm-6">
+				<label for=""><label class="required_label">&nbsp;</label>钉钉号</label>
+				<input type="text" class="form-control" id="contactDingding" name="contactDingding" style="width: 100%;" value="{{contactDingding}}">
+			</div>
+			<div class="form-group col-sm-12">
+				<br>
+				<div class="col-sm-offset-11 col-sm-10">
+					<button type="button" class="btn btn-default moli_color" validate-form="regInfo_contractMethod_form" bind-method="submitMediaRegInfo" data-rtype="2">保存</button>
+				</div>
+			</div>
+		</form>
+	</div>
+	<div role="tabpanel" class="tab-pane" id="regInfo_SettMethod">
+		<!-- 付款方式 -->
+		<br />
+		<form class="form-horizontal" id="regInfo_SettMethod_form">
+			<input type="hidden" name="id" value="{{id}}" />
+			<input type="hidden" name="principalId" value="{{principalId}}" />
+			<div class="row">
+				<div class="form-group col-sm-4">
+					<label for="add_or_edit_invoice_type"
+						class="col-sm-4 control-label"> <label
+						class="required_label">*&nbsp;</label>开票类型
+					</label>
+					<div class="col-sm-8">
+						<select class="form-control required"
+							id="add_or_edit_invoice_type" name="paymentInvoiceType" style="width:100%;" >
+						</select>
+					</div>
+				</div>
+			</div>
+			<fieldset>
+				<legend>收款信息</legend>
+				<div class="col-md-12">
+					<div class="row">
+						<label><input type="radio" name="payMethod" value="1">&nbsp;V账号：</label>
+					</div>
+					<div class="row" style="margin-top: -20px;">
+						<hr>
+					</div>
+					<div class="row">
+						<div class="form-group col-sm-4">
+							<label for="paymentPayeeVAccount"
+								class="col-sm-4 control-label"> <label
+								class="required_label">*&nbsp;</label>V账号
+							</label>
+							<div class="col-sm-8" id="vinfo">
+								<input type="text" class="form-control"
+									id="paymentPayeeVAccount" name="paymentPayeeVAccount"
+									style="width: 100%;" value="{{paymentPayeeVAccount}}">
+							</div>
+						</div>
+					</div>
+					<br>
+					<div class="row">
+						<label><input type="radio" name="payMethod" value="0">&nbsp;银行卡信息：</label>
+					</div>
+					<div class="row" style="margin-top: -20px;">
+						<hr>
+					</div>
+					<div class="row" id="bankInfo">
+						<div class="form-group col-sm-4">
+							<label for="add_or_edit_settlement_method" class="col-sm-4 control-label"><label
+								class="required_label">*&nbsp;</label>结算方式</label>
+							<div class="col-sm-8">
+								<select class="form-control required" id="add_or_edit_settlement_method" name="paymentSettleMethod" style="width: 100%;">
+								</select>
+							</div>
+						</div>
+						<div class="form-group col-sm-4">
+							<label for="add_dr_payee_bank"
+								class="col-sm-4 control-label"> <label
+								class="required_label">*&nbsp;</label>开户银行
+							</label>
+							<div class="col-sm-8">
+								<select class="form-control " id="add_dr_payee_bank"
+									name="paymentPayeeBank" style="width: 100%;">
+								</select>
+							</div>
+						</div>
+						<div class="form-group col-sm-4">
+							<label for="paymentPayeeBankBranch"
+								class="col-sm-4 control-label"> <label
+								class="required_label">*&nbsp;</label>开户支行
+							</label>
+							<div class="col-sm-8">
+								<input type="text" class="form-control"
+									id="paymentPayeeBankBranch" name="paymentPayeeBankBranch"
+									style="width: 100%;" value="{{paymentPayeeBankBranch}}">
+							</div>
+						</div>
+						<div class="form-group col-sm-4">
+							<label for="paymentPayeeName"
+								class="col-sm-4 control-label"> <label
+								class="required_label">*&nbsp;</label>收款人姓名
+							</label>
+							<div class="col-sm-8">
+								<input type="text" class="form-control"
+									id="paymentPayeeName" name="paymentPayeeName"
+									style="width: 100%;" value="{{paymentPayeeName}}">
+							</div>
+						</div>
+
+						<div class="form-group col-sm-4">
+							<label for="paymentPayeeBankAccount"
+								class="col-sm-4 control-label"> <label
+								class="required_label">*&nbsp;</label>收款人银行卡号
+							</label>
+							<div class="col-sm-8">
+								<input type="text" class="form-control"
+									id="paymentPayeeBankAccount"
+									name="paymentPayeeBankAccount" style="width: 100%;"
+									value="{{paymentPayeeBankAccount}}">
+							</div>
+						</div>
+
+						<div class="form-group col-sm-4">
+							<label for="paymentPayeePhone"
+								class="col-sm-4 control-label">收款人电话</label>
+							<div class="col-sm-8">
+								<input type="text" class="form-control"
+									id="paymentPayeePhone" name="paymentPayeePhone"
+									style="width: 100%;" value="{{paymentPayeePhone}}">
+							</div>
+						</div>
+
+						<div class="form-group col-sm-4">
+							<label for="paymentPayeeIdCard"
+								class="col-sm-4 control-label">收款人身证号</label>
+							<div class="col-sm-8">
+								<input type="text" class="form-control"
+									id="paymentPayeeIdCard" name="paymentPayeeIdCard"
+									style="width: 100%;" value="{{paymentPayeeIdCard}}">
+							</div>
+						</div>
+
+
+						<div class="form-group col-sm-12">
+							<br>
+							<div class="col-sm-offset-11 col-sm-10">
+								<button type="button" class="btn btn-default moli_color"
+									validate-form="regInfo_SettMethod_form"
+									bind-method="submitMediaRegInfo" data-rtype="3">保存</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</fieldset>
+		</form>
+	</div>
+	</script>
+	<!-- 主体详情-修改模板 end-->
+
+	<!-- 新增达人 start -->
+	<script type="text/html" id="modify_daren_info_modal_temp">
+		<form class="form-horizontal" id="modify_daren_info_form">
+		<div class="form-group">
+			<input type="hidden" name="id" value="{{id}}" />
+			<div class="form-group" style="border-top: none;">
+				<label class="col-sm-3 control-label"> <label class="required_label">*</label> 平台
+				</label>
+				<div class="col-md-6">
+					<select class="form-control required" name="platform" id="platform_edit" style="width: 100%">
+					</select>
+				</div>
+			</div>
+
+			<div class="form-group" style="border-top: none;">
+				<label class="col-sm-3 control-label"> <label class="required_label">*</label> 昵称
+				</label>
+				<div class="col-md-6">
+					<input type="text" class="form-control required" id="nickName" name="nickname" value="{{nickname}}">
+				</div>
+			</div>
+
+			<!--
+			<div class="form-group" style="border-top:none;">
+			    <label class="col-sm-3 control-label"> <span class="required">*</span> 专注领域 </label>
+			    <div class="col-sm-6">
+			       <select class="form-control required" name="domain" id="edit_domain" style="width:100%" > </select>
+			       <div style="display:none; color:red; font-size:12pt" id="divPoolDrenDomain">
+
+			       </div>
+			    </div>
+			</div>
+			-->
+
+			<div class="form-group article_url_group" style="border-top: none;">
+				<label class="col-sm-3 control-label"> <label class="required_label">*</label> 已发布文章链接
+				</label>
+				<div class="col-md-6">
+					<select class="form-control required" id="resourceType_edit" name="resourceType" style="width: 100%">
+						<option value="0" {{if articleChannel == 0}}selected{{/if}} >请选择</option>
+						<option value="10" {{if articleChannel == 10}}selected{{/if}}>微淘</option>
+					</select>
+				</div>
+			</div>
+			<div class="form-group article_url_group" style="border-top: none;">
+				<label class="col-sm-3 control-label"> </label>
+				<div class="col-md-9">
+					<input type="text" class="form-control required" id=articleUrl name="articleUrl" value="{{articleUrl}}" > <font color="red">为了验证您的达人账号信息的有效性，请填写一篇已发布的文章链接，感谢配合</font> <br> <font
+						style="display: block;">连接格式参考以下内容：</font> <font style="display: block;"><a target="_blank"
+						href="https://market.m.taobao.com/apps/market/content/index.html?contentId=200505738511">https://market.m.taobao.com/apps/market/content/index.html?contentId=200505738511</a></font>
+				</div>
+			</div>
+		</div>
+	</form>
+	</script>
+	<!-- 新增达人 end-->
+
+	<script src="js/hplus/hplus.parent.js"></script>
+	<script type="text/javascript">
+		var dict = JSON.parse(getCacheDict()).realValue;
+		var showTip = true;
+
+		function manualActiveTab(target) {
+			window.targetTab = target;
+			var tabBtn = $("#perfect_principal_info_modal [aria-controls=" + target + "]");
+			//禁用其他tab
+			tabBtn.parents("[role=presentation]").siblings("[role=presentation]").find("a").on('show.bs.tab', function(e) {
+				if ($(this).attr("aria-controls") != window.targetTab) {
+					return false;
+				}
+			});
+			//点击tab
+			tabBtn[0].click();
+		}
+
+		function opendEditPrincipalInfoModal() {
+			$("#media_reg_info_modal").modal("show");
+			showTip = false;
+		}
+
+		function initPerfectPrincipalInfoModalData() {
+			$.post("/daren-web/daren/mediaPrincipalInfoIsPerfect", {}, function(data, textStatus, req) {
+
+				$("#moliContactEmail").text("如有疑问，可联系&nbsp;" + data.result.moliContactEmail);
+
+				$("#perfect_principal_info_modal #audit_failure_msg").html(data.result.principalInfo.auditRemark);
+				var html = template("perfect_principal_info_temp", data.result);
+				$("#perfect_info_fieldset").html(html);
+
+				var pending_review_tab = template("pending_review_tab_fieldset_temp", data.result);
+				$("#pending_review_tab").html(pending_review_tab);
+
+				var audit_failure_tab = template("audit_failure_tab_fieldset_temp", data.result);
+				$("#audit_failure_tab_body").html(audit_failure_tab);
+
+				var more_info_tab = template("more_info_tab_fieldset_temp", data.result);
+				$("#more_info_tab_body").html(more_info_tab);
+
+				//当前主体状态
+				var principalStatus = data.result.principalInfo.auditStatus;
+
+				(function() {
+					//是否可以提交审核
+					var isPerfects = [data.result.drenResInfo.isPerfect, data.result.drenInfo.isPerfect, data.result.paymentInfo.isPerfect, data.result.contactInfo.isPerfect,
+						data.result.basicPrincipalInfo.isPerfect
+					];
+					var canAuditSubmit = true;
+					$.each(isPerfects, function() {
+						if (this == 2) {
+							canAuditSubmit = false;
+							return false;
+						}
+					});
+
+					var statusCanSubmit = false;
+					var canSubmitAuditStatus = [0, 1, 12, 22, 32, 99];
+					//是否可以提交审核
+					if (canSubmitAuditStatus.contains(principalStatus)) {
+						statusCanSubmit = true;
+					}
+
+					if (canAuditSubmit && statusCanSubmit) {
+						$(".audit_submit_btn").attr("cansubmit", 1);
+					} else {
+						$(".audit_submit_btn").attr("cansubmit", 0);
+					}
+				})();
+
+				//控制是否可关闭tip
+				(function() {
+					var canCloseTipStatus = [11, 21, 31, 90];
+					//审核不通过
+					if (canCloseTipStatus.contains(principalStatus)) {
+						$("#close_perfect_principal_info_modal_btn").attr("canclose", 1);
+					} else {
+						$("#close_perfect_principal_info_modal_btn").attr("canclose", 0);
+					}
+				})();
+
+				(function() {
+					var auditFailureStatus = [12, 22, 32, 99];
+					if (auditFailureStatus.contains(principalStatus)) {
+						$("a[aria-controls=pending_review_tab]").parents("[role=presentation]").css({
+							display: "none"
+						});
+						$("a[aria-controls=audit_failure_tab]").parents("[role=presentation]").css({
+							display: "block"
+						});
+					} else {
+						$("a[aria-controls=audit_failure_tab]").parents("[role=presentation]").css({
+							display: "none"
+						});
+						$("a[aria-controls=pending_review_tab]").parents("[role=presentation]").css({
+							display: "block"
+						});
+					}
+				})();
+
+				if (principalStatus == 0 || principalStatus == 1) {
+					manualActiveTab("perfect_info_tab");
+					return;
+				}
+				var underReviewStatus = [10, 20, 30];
+				//审核中
+				if (underReviewStatus.contains(principalStatus)) {
+					manualActiveTab("pending_review_tab");
+					return;
+				}
+
+				var auditFailureStatus = [12, 22, 32, 99];
+				//审核不通过
+				if (auditFailureStatus.contains(principalStatus)) {
+					manualActiveTab("audit_failure_tab");
+					return;
+				}
+
+				var auditSuccStatus = [11, 21, 31, 90];
+				//审核通过
+				if (auditSuccStatus.contains(principalStatus)) {
+					manualActiveTab("more_info_tab");
+					return;
+				}
+			});
+		}
+
+		function submitMediaRegInfo(that, data) {
+			if (data.principalId > 0) {
+				var yes = confirm("修改，并提交审核？Ps：一旦提交审核，需等待审核完成才可再次操作。");
+				if (!yes)
+					return;
+			}
+			var rtype = parseInt($(that).data("rtype"));
+			var url;
+			if (rtype == 1) {
+				url = "/daren-web/daren/submitMediaRegInfoAuditForBasic";
+				if (isEmpty(data.principalName)) {
+					alert("主体名称不能为空");
+					return;
+				}
+			}
+			if (rtype == 2) {
+				url = "/daren-web/daren/submitMediaRegInfoAuditForContactMethod";
+				if (isEmpty(data.contacts)) {
+					alert("业务联系人不能为空");
+					return;
+				}
+				if (isEmpty(data.contactPhone)) {
+					alert("联系电话不能为空");
+					return;
+				}
+			}
+			if (rtype == 3) {
+				url = "/daren-web/daren/submitMediaRegInfoAuditForSettMethod";
+
+				if (isEmpty(data.paymentInvoiceType)) {
+					alert("开票类型 不能为空");
+					return;
+				}
+
+				var type = $("[name=payMethod]:checked").val();
+				if (type == 1) {
+
+					data.paymentSettleMethod = 1;
+
+					if (isEmpty(data.paymentPayeeVAccount)) {
+						alert("V账号 不能为空");
+						return;
+					}
+
+				} else {
+
+					if (isEmpty(data.paymentSettleMethod) || data.paymentSettleMethod == 0) {
+						alert("结算方式不能为空");
+						return;
+					}
+
+					if (isEmpty(data.paymentPayeeBank) || data.paymentPayeeBank == 0) {
+						alert("开户银行 不能为空");
+						return;
+					}
+					if (isEmpty(data.paymentPayeeBankBranch)) {
+						alert("开户支行 不能为空");
+						return;
+					}
+					if (isEmpty(data.paymentPayeeName)) {
+						alert("收款人姓名 不能为空");
+						return;
+					}
+					if (isEmpty(data.paymentPayeeBankAccount)) {
+						alert("收款人银行卡号 不能为空");
+						return;
+					}
+				}
+			}
+
+			$.post(url, data, function(resp) {
+				if (resp.status == 0) {
+					alert("操作成功");
+					$("#media_reg_info_modal").modal("hide");
+				} else {
+					alert(resp.msg);
+				}
+			});
+		}
+
+		function openDarenResourceManagerModal(drInfo) {
+			$.post("/daren-web/daren/getCurrentUserRegInfo", {}, function(resp) {
+				$.extend(drInfo, {
+					includingTax: resp.result.includingTax,
+					includingTaxStr: dict.INCLUDING_TAX[resp.result.includingTax],
+					pinfo: resp.result.id
+				});
+
+				// 			core.modal("modify_daren_resource_modal", modifyDarenResourceTemp(drInfo));
+				var html = template("modify_daren_resource_modal_temp", drInfo);
+				$("#modify_daren_resource_modal #modify_daren_resource_modal_body").html(html);
+				$("#modify_daren_resource_modal").modal("show");
+
+				bindDrenResourceData(drInfo.id);
+				// 检查是否设置税费类型
+				/*
+				if (resp.result.includingTax == 0) {
+				    core.modal("set_including_tax_modal", setIncludingTaxModalTemp(resp.result));
+				}
+				 */
+			});
+		}
+
+		function bindDrenResourceData(drId) {
+			$.post("/daren-web/daren/resource_list/" + drId, {}, function(resp) {
+				var datas = resp.result;
+				var html = "";
+				$.each(datas, function() {
+					if (isNotEmpty(this.expiryDate)) {
+						this.expiryDateStr = this.expiryDate.substring(0, 10);
+					}
+					this.resourceTypeStr = dict.RESOURCE_LOCATION[this.resourceType];
+					html += template("daren_resource_item_tmpl", this);
+				});
+				$("#detail-tbody-dr-media-list").append(html);
+				$("#detail-tbody-dr-media-list input[id^='ipt_expiry_date_']").each(function() {
+					var dipt = $(this).attr("id");
+					initDatePicker(dipt);
+				});
+				//core.listenClick();
+			});
+		}
+
+		function getDrenBatchResource() {
+			var resources = [];
+			$("tr[id^='dren_resource_']").each(function() {
+				var resource = {};
+				var rid = $(this).attr("rid");
+				if (rid == 0) {
+					// 新增
+					rid = $(this).attr("lineno");
+					var resourceLocation = $("#ipt_resource_type_" + rid).val();
+					resource.resourceType = resourceLocation;
+				} else {
+					resource.id = rid || 0;
+				}
+				var price = $("#ipt_price_" + rid).val();
+				var discountPrice = $("#ipt_discount_price_" + rid).val();
+				var expiryDate = $("#ipt_expiry_date_" + rid).val();
+				var priceRemark = $("#ipt_price_remark_" + rid).val();
+
+				resource.price = price || 0.0;
+				resource.discountPrice = discountPrice || 0.0;
+				resource.expiryDate = expiryDate || null;
+				resource.priceRemark = priceRemark;
+				resources.push(resource);
+			});
+			return resources;
+		}
+
+		function cookiesave(n, v, mins, dn, path)
+	    {
+		     if(n)
+		     {
+			      if(!mins) mins = 365 * 24 * 60;
+			      if(!path) path = "/";
+			      var date = new Date();
+			      date.setTime(date.getTime() + (mins * 60 * 1000));
+			      var expires = "; expires=" + date.toGMTString();
+			      if(dn) dn = "domain=" + dn + "; ";
+			      document.cookie = n + "=" + v + expires + "; " + dn + "path=" + path;
+		     }
+	    }
+	    function cookieget(n)
+	    {
+		     var name = n + "=";
+		     var ca = document.cookie.split(';');
+		     for(var i=0;i<ca.length;i++) {
+		      var c = ca[i];
+		      while (c.charAt(0)==' ') c = c.substring(1,c.length);
+		      if (c.indexOf(name) == 0) return c.substring(name.length,c.length);
+		     }
+		     return "";
+	    }
+	    
+	    function showUpdateInfo(){
+	    	console.log('notShow:' + cookieget('notShow'));
+	 		if(cookieget('notShow')=='true'){
+	  			$("#div_update_info").modal("hide");
+	 		}else{
+	 			$("#div_update_info").modal("show");
+	 		}    	
+	    }
+	    function notShow() {
+	    	cookiesave('notShow','true','','','');
+	    	$("#div_update_info").modal("hide");
+	    	console.log('notShow:' + cookieget('notShow'));
+	    }
+		
+		$(function() {
+	    	/* // 显示升级公告
+			showUpdateInfo(); */
+			
+			var search = location.search.substring(1);
+			if (search.split("&")[0] === "pg=smartpage") {
+				setTimeout(function() {
+					$("#side-menu a[href='/page/task/auto_delivery_article.html']").trigger("click")
+				}, 600)
+			}
+
+			$("#perfect_principal_info_modal a[aria-controls]").on("shown.bs.tab", function() {
+				var that = this;
+				var ariaControls = $(that).attr("aria-controls");
+				var title = "";
+				if (ariaControls == "perfect_info_tab") {
+					title = "您的账号尚未准备就绪"
+				}
+				if (ariaControls == "pending_review_tab") {
+					title = "您的账号尚未准备就绪"
+				}
+				if (ariaControls == "audit_failure_tab") {
+					title = "您的账号还未准备就绪"
+				}
+				if (ariaControls == "more_info_tab") {
+					title = "您的账号已准备就绪"
+				}
+				$(that).parents("#perfect_principal_info_modal").find(".modal-title").text(title);
+			});
+
+			//主体完善modal
+			$("#perfect_principal_info_modal").on("shown.bs.modal", function(e) {
+				initPerfectPrincipalInfoModalData();
+			});
+
+			(function() {
+				$.post("/daren-web/daren/getCurrentUserRegInfo", {}, function(resp) {
+					if (resp.result.showTip == 1) {
+						$("#perfect_principal_info_modal").modal("show");
+					}
+				});
+				$.post("/daren-web/daren/currentUserIsPrincipal", {}, function(resp) {
+					if (!resp.result) {
+						$("#modify_principal_li").remove();
+					}
+				});
+			})();
+
+			$("#perfect_principal_info_modal").on("click", ".opendPrincipalInfoModal", function() {
+				$("#perfect_principal_info_modal").modal("hide");
+				$("#media_reg_info_modal").modal("show");
+
+				var tab = $(this).data("tab");
+				window.principalDefaultTab = tab;
+			});
+
+			//打开修改达人modal
+			$("#perfect_principal_info_modal").on("click", ".openModifyDarenInfoModalBtn", function() {
+				$("#perfect_principal_info_modal").modal("hide");
+				$("#modify_daren_info_modal").modal("show");
+
+				$.post("/daren-web/daren/getDarenInfoDetail", {
+					diId: $(this).data("drid")
+				}, function(resp) {
+					var html = template("modify_daren_info_modal_temp", resp.result);
+					$("#modify_daren_info_modal #modify_daren_info_modal_body").html(html);
+					var selectOption = {
+						dropdownParent: $("#modify_daren_info_modal")
+					}
+					setDic("platform_edit", dict.WE_MEDIA_PLATFORM, resp.result.platform, selectOption);
+					setDic("edit_domain", dict.DR_DOMAIN, resp.result.domain, selectOption);
+					//setDic("resourceType_edit", dict.RESOURCE_LOCATION, resp.result.articleChannel, selectOption);
+					$("#platform_edit").prepend("<option value='0' >请选择</option>");
+					//$("#resourceType_edit").prepend("<option value='0' >请选择</option>");
+				});
+			});
+			$("#modify_daren_info_modal").on("hidden.bs.modal", function(e) {
+				$("#perfect_principal_info_modal").modal("show");
+			});
+
+			//id="add_daren_info_platform"
+			$("#add_daren_info_platform").change(function() {
+				var that = this;
+				var type = $(that).val();
+				if (type == 1) {
+					$("#add_daren_info_modal .article_url_group").show();
+				} else {
+					$("#add_daren_info_modal .article_url_group").hide();
+				}
+			});
+
+			$("#modify_daren_info_modal").on("change", "#platform_edit", function() {
+				var that = this;
+				var type = $(that).val();
+				if (type == 1) {
+					$("#modify_daren_info_modal .article_url_group").show();
+				} else {
+					$("#modify_daren_info_modal .article_url_group").hide();
+				}
+			});
+
+
+
+			//添加达人信息
+			$("#modify_daren_info_modal").on("click", "[bind-method=submitModifyDrInfo]", function(ev) {
+				var that = this;
+				var data = {};
+				var formName = $(that).attr("validate-form");
+				var formDataArray = $("#" + formName).serializeArray();
+				$.each(formDataArray, function() {
+					data[this.name] = this.value;
+				});
+
+				if (data.platform == 0) {
+					alert("平台不能为空");
+					return;
+				}
+				if (isEmpty(data.nickname)) {
+					alert("昵称不能为空");
+					return;
+				}
+				if (data.platform == 1) {
+					if (data.resourceType == 0) {
+						alert("已发布链接渠道不能为空");
+						return;
+					}
+					if (isEmpty(data.articleUrl)) {
+						alert("已发布链接不能为空");
+						return;
+					}
+				}
+				$.post("/daren-web/daren/modifyMediaDarenInfo", data, function(resp) {
+					if (parseInt(resp.result) > 0) {
+						alert("更新成功");
+						return;
+					}
+					alert("更新失败:" + resp.msg);
+				});
+			});
+
+			//打开新增达人
+			$("#perfect_principal_info_modal").on("click", ".opendAddDarenModal", function() {
+				$("#perfect_principal_info_modal").modal("hide");
+				$("#add_daren_info_modal").modal("show");
+			});
+			//打开达人渠道管理
+			$("#perfect_principal_info_modal").on("click", ".openDarenResourceManagerBtn", function() {
+				var that = this;
+				var drId = $(that).data("drid");
+				$.post("/daren-web/daren/getDarenInfoDetail", {
+					diId: drId
+				}, function(resp) {
+					$.extend(resp.result, {
+						platformStr: dict.WE_MEDIA_PLATFORM[resp.result.platform],
+						articleChannelStr: dict.RESOURCE_LOCATION[resp.result.articleChannel]
+					});
+					openDarenResourceManagerModal(resp.result);
+				});
+			});
+
+			//删除渠道
+			$("#modify_daren_resource_modal").on("click", ".delDrenResourceLineBtn", function() {
+				var that = $(this);
+				var lineNo = that.attr("line_no");
+				if (lineNo) {
+					$("#dren_resource_" + lineNo).remove();
+				}
+			});
+			//删除渠道(删除以持久化的渠道)
+			$("#modify_daren_resource_modal").on("click", ".deleteDrenResource_a", function() {
+				var that = $(this);
+				var isDel = confirm("确定删除该达人渠道?");
+				if (isDel) {
+					var id = that.attr("id");
+					$.post("/daren-web/daren/resource_delete", {
+						id: id
+					}, function(resp) {
+						if (resp.status == 0) {
+							$("#dren_resource_" + id).remove();
+							alert("删除成功！");
+						} else {
+							alert(resp.msg);
+						}
+					});
+				}
+			});
+
+			$("#modify_daren_resource_modal").on("hidden.bs.modal", function(e) {
+				var isVisible = $("#perfect_principal_info_modal").is(":visible");
+				if (isVisible) {
+					initPerfectPrincipalInfoModalData();
+				} else {
+					$("#perfect_principal_info_modal").modal("show");
+				}
+			});
+
+			$("#modify_daren_resource_modal").on("show.bs.modal	", function(e) {
+				$("#perfect_principal_info_modal").modal("hide");
+			});
+
+			var batchResourceLineNo = 0;
+			//添加渠道
+			$("#modify_daren_resource_modal").on("click", ".addDrenResourceNewLineBtn", function() {
+				var that = $(this);
+				$("tr[id^='dren_resource_']").each(function() {
+					batchResourceLineNo++;
+				});
+				var obj = {
+					lineNo: batchResourceLineNo
+				};
+				var drName = that.attr("drName");
+				var tpl = $("#add_dren_resource_batch_tpl").html();
+				tpl = tpl.replaceAll("REPLACE_LINENO", "L_" + batchResourceLineNo).replaceAll("REPLACE_DREN_NAME", drName);
+				var html = render(obj, tpl);
+				$("#detail-tbody-dr-media-list").append(html);
+
+				//初始化渠道选择
+				var newRowResourceId = "ipt_resource_type_L_" + batchResourceLineNo;
+				var selectOption = {
+					dropdownParent: $("#modify_daren_resource_modal")
+				}
+				setDic(newRowResourceId, dict.RESOURCE_LOCATION, selectOption);
+
+				/*
+				$("select[id^='ipt_resource_type_']").each(function() {
+					var selectOption = {
+						dropdownParent : $("#modify_daren_resource_modal")
+					}
+					setDic($(this).attr("id"), dict.RESOURCE_LOCATION, selectOption);
+				});
+				$("input[id^='ipt_expiry_date_']").each(function() {
+					initDatePicker($(this).attr("id"));
+				});
+				 */
+
+			});
+			//保存添加的渠道
+			$("#modify_daren_resource_modal").on("click", ".batchEditDrenResourceBtn", function() {
+				var that = $(this);
+				var flag = true;
+				var resourceLocations = [];
+				$("tr[id^='dren_resource_']").each(function() {
+					var rid = $(this).attr("rid");
+					if (rid == 0) {
+						// 新增
+						rid = $(this).attr("lineno");
+						var resourceLocation = $("#ipt_resource_type_" + rid).val();
+						if (!resourceLocation || resourceLocation == 0) {
+							alert("渠道必填");
+							flag = false;
+						} else {
+							if (resourceLocations.length > 0 && resourceLocations.indexOf(resourceLocation) >= 0) {
+								alert("渠道重复了");
+								flag = false;
+							} else {
+								resourceLocations.push(resourceLocation);
+							}
+						}
+					} else {
+						var resourceLocation = $("#ipt_resource_type_" + rid).attr("value");
+						if (resourceLocations.length > 0 && resourceLocations.indexOf(resourceLocation) >= 0) {
+							alert("渠道重复了");
+							flag = false;
+						} else {
+							resourceLocations.push(resourceLocation);
+						}
+					}
+
+					//刊例价
+					var ipt_price = parseFloat($.trim($("#ipt_price_" + rid).val()));
+					//执行价
+					var ipt_discount_price = parseFloat($.trim($("#ipt_discount_price_" + rid).val()));
+
+					if (ipt_price < ipt_discount_price) {
+						alert("渠道【" + dict.RESOURCE_LOCATION[resourceLocation] + "】的执行价不能大于标准报价");
+						flag = false;
+					}
+
+				});
+				if (flag) {
+					var isBatch = confirm("提交渠道报价数据？");
+					if (isBatch) {
+						// 批量修改达人资源
+						var resources = getDrenBatchResource();
+						if (resources && resources.length > 0) {
+							$.post("/daren-web/daren/resource_batch_save", {
+								"drId": that.attr("drId"),
+								"resourceStr": JSON.stringify(resources)
+							}, function(resp) {
+								if (resp.status === 0) {
+									alert("批量修改成功");
+									$("#modify_daren_resource_modal").modal("hide");
+								} else {
+									alert(resp.msg);
+								}
+							});
+						}
+					}
+				}
+			});
+
+			$("#perfect_principal_info_modal").on("click", ".audit_submit_btn", function() {
+				/*
+				var isChecked = $("#perfect_principal_info_modal #agree_terms").is(":checked");
+				if (!isChecked) {
+				    alert("请认真阅读 《豹纹平台服务条款》与《法律声明和隐私权政策》，并勾选");
+				    $("#perfect_principal_info_modal #agree_terms").focus();
+				    return;
+				}
+				 */
+
+				var canSubmit = $(this).attr("cansubmit");
+				if (canSubmit == 0) {
+					alert("请先完善您的信息，方可进行下一步操作");
+					return;
+				}
+
+				var hasNext = confirm("资料一旦提交审核，需等待审核完成后才可修改，是否继续提交？");
+				if (hasNext) {
+					$.post("/daren-web/daren/principalAuditSumit", {}, function(resp) {
+						if (resp.status == 0) {
+							alert("您的资料已提交审核，谢谢");
+							initPerfectPrincipalInfoModalData();
+						} else {
+							alert("提交失败：" + resp.msg);
+						}
+					});
+				}
+			});
+
+			$("#pending_review_tab").on("click", "#close_perfect_principal_info_modal_btn_false", function() {
+				alert("审核通过后，方可做其他操作");
+			});
+
+			$("#close_perfect_principal_info_modal_btn").click(function() {
+				var canclose = $(this).attr("canclose");
+				if (canclose == 0) {
+					alert("审核通过后，方可做其他操作");
+					return;
+				}
+				var unshow_tip = $("#unshow_tip").is(":checked");
+				if (unshow_tip) {
+					if (confirm("不再显示此窗口？")) {
+						$.post("/daren-web/daren/hidenShowtip", {}, function() {});
+					}
+				}
+				$("#perfect_principal_info_modal").modal("hide");
+			});
+
+			//主体详情modal
+			$("#media_reg_info_modal").on("hidden.bs.modal", function(e) {
+				if (showTip) {
+					$("#perfect_principal_info_modal").modal("show");
+				} else {
+					showTip = true;
+				}
+			});
+
+			$("#media_reg_info_modal").on("change", "[name=mediaType]", function() {
+				var that = this;
+				var mediaType = $(that).val();
+				var text = '<label class="required_label">*</label>';
+
+				var principalDescDom = $("[for=principalDescription]").parent(".form-group");
+
+				if (mediaType == 1) {
+					text += "负责人名字";
+					principalDescDom.hide();
+				} else {
+					text += "公司/工作室名称";
+					principalDescDom.show();
+				}
+				$("#media_reg_info_modal [for=principalName]").html(text);
+			});
+
+			$("#media_reg_info_modal").on("change", "[name=payMethod]", function() {
+				var that = this;
+				var type = $(that).val();
+				if (type == 1) {
+					$("#vinfo input[name]").removeAttr("readonly");
+					$("#bankInfo input[name]").prop("readonly", "readonly");
+					$("#bankInfo select[name]").prop("disabled", "disabled");
+
+				} else {
+					$("#vinfo input[name]").prop("readonly", "readonly");
+					$("#bankInfo input[name]").removeAttr("readonly");
+					$("#bankInfo select[name]").removeAttr("disabled");
+				}
+			});
+
+			$("#media_reg_info_modal").on("shown.bs.modal", function(e) {
+
+				$.post("/daren-web/daren/getCurrentUserRegInfo", {}, function(resp) {
+					var html = template("principal_inf_edit_temp", resp.result);
+					$("#principal_info_tabcontent").html(html);
+
+					$.post("/daren-web/daren/loadCMSOptionLog", {
+						"entityType": "t_dren_principal",
+						"entityId": resp.result.principalId
+					}, function(d) {
+
+
+						var principalEntityDesc = {
+							"principalName": "主体名称",
+							"mediaType": "帐号类型",
+							"principalDescription": "主体简介",
+							"contacts": "业务联系人",
+							"contactTitle": "职位",
+							"contactQq": "QQ号",
+							"contactDingding": "钉钉号",
+							"contactPhone": "联系电话",
+							"contactWechat": "微信号",
+							"contactWangwang": "旺旺号",
+							"paymentSettle_method": "结算方式",
+							"paymentInvoice_type": "开票类型",
+							"paymentPayeName": "收款人姓名",
+							"paymentPayeeBank": "开户银行",
+							"paymentPayeeBank_account": "收款人银行卡号",
+							"paymentPayeeBank_branch": "开户支行",
+							"paymentPayeePhone": "收款人电话",
+							"paymentPayeeId_card": "收款人身份证号",
+							"paymentPayeeVAccount": "V账号"
+						};
+
+						$.each(d.result, function(idx, item) {
+							var content = JSON.parse(item.logContent);
+							var contentStr = "";
+							$.each(content, function(idx2, item2) {
+								var fieldStr = principalEntityDesc[item2.field];
+								if (isEmpty(fieldStr))
+									return true;
+								contentStr += "[" + fieldStr + "]&nbsp;&nbsp;&nbsp;由：“" + item2.from + "”&nbsp;&nbsp;&nbsp;改为：“" + item2.to + "”；<br>";
+							});
+							$.extend(item, {
+								"logContentStr": contentStr
+							});
+						});
+
+						var logsHtml = template("principal_change_logs", d);
+						$("#collapsePrincipalChangeLogsContent").html(logsHtml);
+					});
+
+					var selectOption = {
+						dropdownParent: $("#media_reg_info_modal")
+					}
+					setDic("add_dr_payee_bank", dict.BANK, resp.result.paymentPayeeBank, selectOption);
+					setDic("add_or_edit_invoice_type", dict.SETTLEMENT_INVOICE_TYPE, resp.result.paymentInvoiceType, selectOption);
+					setDic("add_or_edit_settlement_period", dict.SETTLEMENT_PERIOD, resp.result.paymentSettlePeriod, selectOption);
+
+					var settleMethods = dict.SETTLEMENT_METHOD;
+					delete settleMethods[1];
+					setDic("add_or_edit_settlement_method", dict.SETTLEMENT_METHOD, resp.result.paymentSettleMethod, selectOption);
+					$("#add_dr_payee_bank").prepend("<option value='0'>请选择</option>");
+
+					if (resp.result.paymentSettleMethod == 1) {
+						$("[name=payMethod][value=1]").click();
+					} else {
+						$("[name=payMethod][value=0]").click();
+					}
+
+					var tabName = isNotEmpty(window.principalDefaultTab) ? window.principalDefaultTab : 'regInfo_basic';
+					var tabBtn = $("#media_reg_info_modal [aria-controls=" + tabName + "]");
+					var tabBtn1 = $("#media_reg_info_modal [aria-controls=regInfo_basic]");
+					//点击tab
+					tabBtn1[0].click();
+					tabBtn[0].click();
+				});
+			});
+
+			//保存主体信息
+			$("#media_reg_info_modal").on("click", "[bind-method=submitMediaRegInfo]", function(ev) {
+				var that = this;
+				var data = {};
+				var formName = $(that).attr("validate-form");
+				var formDataArray = $("#" + formName).serializeArray();
+				$.each(formDataArray, function() {
+					data[this.name] = this.value;
+				});
+				submitMediaRegInfo(that, data);
+			});
+
+			//添加达人
+			$("#add_daren_info_modal").on("shown.bs.modal", function(e) {
+				var that = this;
+				$(that).find("form")[0].reset();
+				var selectOption = {
+					dropdownParent: $("#add_daren_info_modal")
+				}
+				setDic("add_daren_info_platform", dict.WE_MEDIA_PLATFORM, selectOption);
+				setDic("add_domain", dict.DR_DOMAIN, selectOption);
+				$("#add_daren_info_platform").prepend("<option value='0' >请选择</option>");
+			});
+			$("#add_daren_info_modal").on("hidden.bs.modal", function(e) {
+				$("#perfect_principal_info_modal").modal("show");
+			});
+
+			//添加达人信息
+			$("#add_daren_info_modal").on("click", "[bind-method=submitDarenInfo]", function(ev) {
+				var that = this;
+				var data = {};
+				var formName = $(that).attr("validate-form");
+				var formDataArray = $("#" + formName).serializeArray();
+				$.each(formDataArray, function() {
+					data[this.name] = this.value;
+				});
+
+				if (data.platform == 0) {
+					alert("平台不能为空");
+					return;
+				}
+				if (isEmpty(data.nickname)) {
+					alert("昵称不能为空");
+					return;
+				}
+
+				if (data.platform == 1) {
+					if (data.resourceType == 0) {
+						alert("已发布链接不能为空");
+						return;
+					}
+					if (isEmpty(data.articleUrl)) {
+						alert("已发布链接不能为空");
+						return;
+					}
+				}
+
+				$.post("/daren-web/daren/addDaren", data, function(resp) {
+					if (resp.status == 0) {
+						alert("新增达人成功，继续添加渠道报价");
+						$("#add_daren_info_modal").modal("hide");
+						$.extend(resp.result, {
+							platformStr: dict.WE_MEDIA_PLATFORM[resp.result.platform],
+							articleChannelStr: dict.RESOURCE_LOCATION[resp.result.resourceType]
+						});
+						openDarenResourceManagerModal(resp.result);
+						return;
+					}
+					alert(resp.msg);
+				});
+			});
+
+		});
+
+		function signOut() {
+			try {
+				window.localStorage.removeItem("accountinfo");
+
+			} catch (e) {
+				console.log(e);
+			}
+
+			$.ajax({
+				url: "/daren-web/rbac/logout.wb",
+				success: function() {
+					var loginUrl = "/login.html";
+					parent.location.href = loginUrl;
+				}
+			})
+		}
+
+		function mizhu_close() {
+			$('.plug-step-win').fadeOut("fast");
+		}
+
+		function reinstall_close() {
+			$('.plug-reinstall-win').fadeOut("fast");
+		}
+
+		function showEditProfile() {
+			$("#edit_profile").modal("show");
+			$.ajax({
+				url: "/daren-web/rbac/user/profile.wb",
+				success: function(rest) {
+					if (rest.status != 0) {
+						alert(rest.msg);
+					} else {
+						$("#nickname").val(rest.result.nick);
+						$("#email").val(rest.result.email);
+					}
+				}
+			})
+
+		}
+
+		function submitEditProfile() {
+			var nickname = $("#nickname").val();
+			var email = $("#email").val();
+			if (!email || !nickname) {
+				alert("姓名和Email都必填！");
+				return false;
+			}
+			$.ajax({
+				url: "/daren-web/rbac/user/editProfile.wb",
+				type: "post",
+				data: {
+					nick: nickname,
+					email: email
+				},
+				success: function(rest) {
+					if (rest.status != 0) {
+						alert(rest.msg);
+					} else {
+						alert("修改成功！");
+						$("#edit_profile").modal("hide");
+					}
+				}
+			})
+		}
+
+		function submitChangePassword() {
+			var oldPassword = $.trim($("#oldPassword").val());
+			var newPassword = $.trim($("#newPassword").val());
+			var confirmPassword = $.trim($("#confirmPassword").val());
+			if (!oldPassword || !newPassword || !confirmPassword) {
+				alert("所有输入不能为空！");
+				return false;
+			}
+			if (oldPassword.length < 6) {
+				alert("旧密码不正确！");
+				$("#oldPassword").focus();
+				return false;
+			}
+			if (newPassword.length < 6) {
+				alert("密码长度不小于6位！");
+				$("#newPassword").focus();
+				return false;
+			}
+
+			var regx = /^(?!([a-zA-Z]+|\d+)$)[a-zA-Z\d]{6,}$/;
+			if (newPassword.match(regx) == null) {
+				alert("密码必须同时包含字母和数字！");
+				$("#newPassword").focus();
+				return false;
+			}
+
+			if (newPassword != confirmPassword) {
+				alert("两次输入密码不相同！");
+				$("#confirmPassword").val();
+				$("#confirmPassword").focus();
+				return false;
+			}
+			$.ajax({
+				url: "/daren-web/rbac/user/changePassword.wb",
+				data: {
+					oldPassword: oldPassword,
+					newPassword: newPassword
+				},
+				success: function(rest) {
+					if (rest.status != 0) {
+						alert(rest.msg);
+					} else {
+						alert("修改密码成功，重新登录！");
+						var loginUrl = "/login.html";
+						parent.location.href = loginUrl;
+					}
+				}
+			})
+		}
+
+		function showChangePassword() {
+			$("#change_password").modal("show");
+		}
+
+		function smartSetHandle(target) {
+			var eventBySmartSet = document.createEvent('Event');
+			eventBySmartSet.initEvent('eventBySmartSet', true, true);
+			$(target)[0].dispatchEvent(eventBySmartSet);
+		}
+
+		function rollBackDataHandle(target) {
+			var eventByRollBackData = document.createEvent('Event');
+			eventByRollBackData.initEvent('eventByRollBackData', true, true);
+			$(target)[0].dispatchEvent(eventByRollBackData);
+		}
+
+		function initMenu() {
+			layerConfig();
+			contabsInit();
+		}
+		
+	</script>
+	
+</body>
+</html>

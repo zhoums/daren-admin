@@ -1,0 +1,2 @@
+/*TMODJS:{"version":17,"md5":"4075504a683f8f0cc646d04d4091a570"}*/
+define(['../../../template',''],function(template){return template('src/artModules/common/notice', '<div class="modal fade" id="noticeDiv"> <div class="modal-dialog" style="width:60%;"> <div class="modal-content"> <div class="modal-header"> <button type="button" class="close" data-dismiss="modal" aria-hidden="true"> &times; </button> <h4 class="modal-title"> <center>提示</center> </h4> </div> <div class="modal-body" style="word-break:break-all; " id="noticeMsg"> </div> </div> </div> </div> ');});

@@ -1,0 +1,177 @@
+<div class="modal fade" id="media_reg_info_modal">
+	<div class="modal-dialog" style="width: 60%;">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h4 class="modal-title">达人主体信息</h4>
+			</div>
+			<div class="modal-body col-sm-12">
+				<div>
+					<!-- Nav tabs -->
+					<ul class="nav nav-tabs" role="tablist">
+						<li role="presentation" class="active">
+							<a href="#regInfo_basic" aria-controls="regInfo_basic" role="tab" data-toggle="tab">基本信息</a>
+						</li>
+						<li role="presentation">
+							<a href="#regInfo_contactMethod" aria-controls="regInfo_contactMethod" role="tab" data-toggle="tab">联系方式</a>
+						</li>
+						<li role="presentation">
+							<a href="#regInfo_SettMethod" aria-controls="regInfo_SettMethod" role="tab" data-toggle="tab">付款方式</a>
+						</li>
+					</ul>
+					<!-- Tab panes -->
+					<div class="tab-content">
+						<div role="tabpanel" class="tab-pane active" id="regInfo_basic">
+							<!-- 基本信息 -->
+							<br>
+							<form class="form-horizontal" id="regInfo_basic_form">
+								<input type="hidden" name="id" value="{{id}}" />
+								<div class="form-group">
+									<label for="mediaType" class="col-sm-3 control-label">账号类型</label>
+									<div class="col-sm-9">
+										<label class="radio-inline">
+											<input type="radio" name="mediaType" value="1" {{if mediaType == 1}}checked="checked"{{/if}}>
+											个人
+										</label>
+										<label class="radio-inline">
+											<input type="radio" name="mediaType" value="2" {{if mediaType == 2}}checked="checked"{{/if}}>
+											公司/工作室
+										</label>
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="principalName" class="col-sm-3 control-label">公司/工作室名称</label>
+									<div class="col-sm-9">
+										<input type="text" class="form-control" id="principalName" name="principalName" value="{{principalName}}">
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="principalDescription" class="col-sm-3 control-label">公司/工作室简介</label>
+									<div class="col-sm-9">
+										<textarea class="form-control" rows="3" id="principalDescription" name="principalDescription"> {{principalDescription}}</textarea>
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="col-sm-offset-11 col-sm-10">
+										<button type="button" class="btn btn-default bind bind-click" validate-form="regInfo_basic_form" bind-method="submitMediaRegInfo" data-rtype="1">保存</button>
+									</div>
+								</div>
+							</form>
+						</div>
+						<div role="tabpanel" class="tab-pane" id="regInfo_contactMethod">
+							<!-- 联系方式 -->
+							<br />
+							<form class="form-inline" id="regInfo_contractMethod_form">
+								<input type="hidden" name="id" value="{{id}}" />
+								<div class="form-group col-sm-4">
+									<label for="">业务联系人*</label>
+									<input type="text" class="form-control" id="contacts" name="contacts" style="width: 100%;" value="{{contacts}}">
+								</div>
+								<div class="form-group col-sm-4">
+									<label for="">联系电话*</label>
+									<input type="text" class="form-control" id="contactPhone" name="contactPhone" style="width: 100%;" value="{{contactPhone}}">
+								</div>
+								<div class="form-group col-sm-4">
+									<label for="">职位</label>
+									<input type="text" class="form-control" id="contactTitle" name="contactTitle" style="width: 100%;" value="{{contactTitle}}">
+								</div>
+								<div class="form-group col-sm-4">
+									<label for="">微信号</label>
+									<input type="text" class="form-control" id="contactWechat" name="contactWechat" style="width: 100%;" value="{{contactWechat}}">
+								</div>
+								<div class="form-group col-sm-4">
+									<label for="">QQ号</label>
+									<input type="text" class="form-control" id="contactQq" name="contactQq" style="width: 100%;" value="{{contactQq}}">
+								</div>
+								<div class="form-group col-sm-4">
+									<label for="">旺旺号</label>
+									<input type="text" class="form-control" id="contactWangwang" name="contactWangwang" style="width: 100%;" value="{{contactWangwang}}">
+								</div>
+								<div class="form-group col-sm-4">
+									<label for="">钉钉号</label>
+									<input type="text" class="form-control" id="contactDingding" name="contactDingding" style="width: 100%;" value="{{contactDingding}}">
+								</div>
+								<div class="form-group col-sm-12">
+									<div class="col-sm-offset-11 col-sm-10">
+										<button type="button" class="btn btn-default bind bind-click" validate-form="regInfo_contractMethod_form" bind-method="submitMediaRegInfo" data-rtype="2">保存</button>
+									</div>
+								</div>
+							</form>
+						</div>
+						<div role="tabpanel" class="tab-pane" id="regInfo_SettMethod">
+							<!-- 付款方式 -->
+							<br />
+							<form class="form-inline" id="regInfo_SettMethod_form">
+								<input type="hidden" name="id" value="{{id}}" />
+								<div class="form-group col-sm-4">
+									<label for="">结算方式*</label>
+									<select class="form-control required" id="add_or_edit_settlement_method" name="paymentSettleMethod" style="width: 100%;">
+									</select>
+								</div>
+								<div class="form-group col-sm-4">
+									<label for="">结算周期*</label>
+									<select class="form-control required" id="add_or_edit_settlement_period" name="paymentSettlePeriod" style="width: 100%;">
+									</select>
+								</div>
+								<div class="form-group col-sm-4">
+									<label for="">开票类型*</label>
+									<select class="form-control required" id="add_or_edit_invoice_type" name="paymentInvoiceType" style="width: 100%;">
+									</select>
+								</div>
+								<div class="form-group col-sm-4">
+									<label for="">收款人姓名*</label>
+									<input type="text" class="form-control" id="paymentPayeeName" name="paymentPayeeName" style="width: 100%;" value="{{paymentPayeeName}}">
+								</div>
+								<div class="form-group col-sm-4">
+									<label for="">收款人银行卡号*</label>
+									<input type="text" class="form-control" id="paymentPayeeBankAccount" name="paymentPayeeBankAccount" style="width: 100%;" value="{{paymentPayeeBankAccount}}">
+								</div>
+								<div class="form-group col-sm-4">
+									<label for="">开户银行*</label>
+									<select class="form-control " id="add_dr_payee_bank" name="paymentPayeeBank" style="width: 100%;">
+									</select>
+								</div>
+								<div class="form-group col-sm-4">
+									<label for="">开户支行*</label>
+									<input type="text" class="form-control" id="paymentPayeeBankBranch" name="paymentPayeeBankBranch" style="width: 100%;" value="{{paymentPayeeBankBranch}}">
+								</div>
+								<div class="form-group col-sm-4">
+									<label for="">收款人电话</label>
+									<input type="text" class="form-control" id="paymentPayeePhone" name="paymentPayeePhone" style="width: 100%;" value="{{paymentPayeePhone}}">
+								</div>
+								<div class="form-group col-sm-4">
+									<label for="">收款人身证号</label>
+									<input type="text" class="form-control" id="paymentPayeeIdCard" name="paymentPayeeIdCard" style="width: 100%;" value="{{paymentPayeeIdCard}}">
+								</div>
+								<div class="form-group col-sm-4">
+									<label for="">V账号</label>
+									<input type="text" class="form-control" id="paymentPayeeVAccount" name="paymentPayeeVAccount" style="width: 100%;" value="{{paymentPayeeVAccount}}">
+								</div>
+								<div class="form-group col-sm-8">
+									<label for="mediaType" class="col-sm-3 control-label">费用报价*</label>
+									<br />
+									<div class="col-sm-12">
+										<label class="radio-inline">
+											<input type="radio" class="required" name="includingTax" value="1" {{if includingTax == 1}}checked="checked"{{/if}}>
+											代缴税费
+										</label>
+										<label class="radio-inline">
+											<input type="radio" class="required" name="includingTax" value="2" {{if includingTax == 2}}checked="checked"{{/if}}>
+											含税
+										</label>
+									</div>
+								</div>
+								<div class="form-group col-sm-12">
+									<div class="col-sm-offset-11 col-sm-10">
+										<button type="button" class="btn btn-default bind bind-click" validate-form="regInfo_SettMethod_form" bind-method="submitMediaRegInfo" data-rtype="3">保存</button>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer"></div>
+		</div>
+	</div>
+</div>

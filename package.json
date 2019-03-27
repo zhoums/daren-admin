@@ -1,0 +1,54 @@
+{
+  "version": "0.0.4",
+  "dirs": {
+    "archive": "archive",
+    "dist": "dist",
+    "src": "src",
+    "test": "test"
+  },
+  "devDependencies": {
+    "brace-expansion": "^1.1.11",
+    "connect-modrewrite": "^0.10.2",
+    "del": "^4.0.0",
+    "glob": "^7.1.3",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^6.0.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-connect": "^5.7.0",
+    "gulp-cssmin": "^0.2.0",
+    "gulp-imagemin": "^5.0.3",
+    "gulp-jshint": "^2.1.0",
+    "gulp-make-css-url-version": "^0.0.13",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-minify-html": "^1.0.6",
+    "gulp-open": "^3.0.1",
+    "gulp-print": "^5.0.2",
+    "gulp-prompt": "^1.2.0",
+    "gulp-rename": "^1.4.0",
+    "gulp-rev-easy": "^1.2.3",
+    "gulp-sass": "^4.0.2",
+    "gulp-sftp": "^0.1.5",
+    "gulp-tmod": "^2.0.3",
+    "gulp-uglify": "^3.0.2",
+    "gulp-usemin": "^0.3.29",
+    "gulp-watch": "^5.0.1",
+    "imagemin-pngquant": "^7.0.0",
+    "jshint": "^2.10.2",
+    "mocha": "^6.0.2",
+    "requirejs": "^2.3.6",
+    "run-sequence": "^2.2.1",
+    "tmodjs": "^1.0.4"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "homepage": "https://localhost:8000/",
+  "license": {},
+  "name": "daren",
+  "description": "personal web page",
+  "private": true,
+  "scripts": {
+    "build": "gulp build",
+    "test": "gulp archive && mocha --reporter spec --timeout 5000"
+  }
+}

@@ -1,0 +1,33 @@
+{
+	"status": 0,
+	"msg": "成功",
+	"result": {
+		"contract": [{
+			"code": "contract_contract_list_contract_detail",
+			"needUrl": "/daren-web/contract/detail"
+		}, {
+			"code": "contract_contract_list_contract_add",
+			"needUrl": "/daren-web/contract/save"
+		}, {
+			"code": "contract_contract_list_contract_audit",
+			"needUrl": "/daren-web/contract/audit"
+		}],
+		
+		"customer": [{
+			"code": "customer_customer_list_import_customer",
+			"needUrl": "/daren-web/upload/importCustomer.wb"
+		}, {
+			"code": "customer_ent_list_customer_edit",
+			"needUrl": "/daren-web/customer/ent/save_or_update"
+		}],
+		
+		"product": [{
+			"code": "product_product_list_product_add",
+			"needUrl": "/daren-web/product/add"
+		}],
+		
+		"task": [{
+		}] 
+
+	}
+}
