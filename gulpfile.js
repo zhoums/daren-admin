@@ -86,17 +86,16 @@ gulp.task('sass:watch', function() {
  * gulp启动的时候相关文件夹已经建立完毕才会监听
  * 不知道什么鬼，tomodjs无法预编译t开头的文件夹
  * */
-var src = './' + dirs.src + '/artModules/****/*.html',
+var src = './' + dirs.src + '/artModules/**/*.html',
   base = './' + dirs.src + '/artModules',
   helpers = './' + dirs.src + '/helpers/helpersArtTemplate.js',
   outputSrc = './' + dirs.src + '/js/templates',
   outputDist = './' + dirs.dist + '/js/templates';
 
 gulp.task("artToHtmlSrc", function() {
-  console.log('src:', src, outputSrc)
-  gulp.src(src)
+  return gulp.src(src)
     .pipe(tmodjs({
-      base: base,
+      templateBase: base,
       type: 'amd',
       combo: true,
       cache: false,
@@ -109,7 +108,7 @@ gulp.task("artToHtmlSrc", function() {
 });
 
 gulp.task("artToHtmlDist", function() {
-  gulp.src(src)
+  return gulp.src(src)
     .pipe(tmodjs({
       base: base,
       type: 'amd',
@@ -263,7 +262,9 @@ gulp.task("hplus_parent", function() {
     './src/js/hplus/parent/jquery.metisMenu.js',
     './src/js/hplus/parent/jquery.slimscroll.min.js',
     './src/js/hplus/parent/layer.min.js',
-    './src/js/hplus/parent/hplus.min.js', './src/js/hplus/parent/contabs.min.js', './src/js/hplus/parent/pace.min.js'
+    './src/js/hplus/parent/hplus.min.js',
+    './src/js/hplus/parent/contabs.min.js',
+    './src/js/hplus/parent/pace.min.js'
   ]).pipe(concat('hplus.parent.js')).pipe(gulp.dest('./src/js/hplus'));
 });
 
